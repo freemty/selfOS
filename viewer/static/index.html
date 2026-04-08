@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selfOS — Knowledge Graph</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div id="header">
+        <h1>selfOS</h1>
+        <span class="stats">loading...</span>
+        <input type="text" id="search-box" placeholder="Search nodes...">
+        <div id="preset-switcher">
+            <button id="preset-btn" title="Color preset">
+                <span class="preset-dots">
+                    <span class="dot" style="background:#4a9eff"></span>
+                    <span class="dot" style="background:#f59e0b"></span>
+                    <span class="dot" style="background:#34d399"></span>
+                </span>
+                <span id="preset-label">Type</span>
+                <span class="chevron">&#x25BE;</span>
+            </button>
+            <div id="preset-dropdown" class="hidden">
+                <div class="preset-option" data-preset="type">
+                    <span class="preset-dots">
+                        <span class="dot" style="background:#4a9eff"></span>
+                        <span class="dot" style="background:#f59e0b"></span>
+                        <span class="dot" style="background:#34d399"></span>
+                    </span>
+                    <span>Type</span>
+                </div>
+                <div class="preset-option" data-preset="tag">
+                    <span class="preset-dots">
+                        <span class="dot" style="background:#ff6b6b"></span>
+                        <span class="dot" style="background:#4ecdc4"></span>
+                        <span class="dot" style="background:#45b7d1"></span>
+                    </span>
+                    <span>Tag Cluster</span>
+                </div>
+                <div class="preset-option" data-preset="timeline">
+                    <span class="preset-dots">
+                        <span class="dot" style="background:#005566"></span>
+                        <span class="dot" style="background:#00a4cc"></span>
+                        <span class="dot" style="background:#ccf5ff"></span>
+                    </span>
+                    <span>Timeline</span>
+                </div>
+                <div class="preset-option" data-preset="connections">
+                    <span class="preset-dots">
+                        <span class="dot" style="background:#661111"></span>
+                        <span class="dot" style="background:#e07020"></span>
+                        <span class="dot" style="background:#ffdd44"></span>
+                    </span>
+                    <span>Connections</span>
+                </div>
+                <div class="preset-option" data-preset="density">
+                    <span class="preset-dots">
+                        <span class="dot" style="background:#0a3d1a"></span>
+                        <span class="dot" style="background:#22a55a"></span>
+                        <span class="dot" style="background:#6dffa0"></span>
+                    </span>
+                    <span>Source Density</span>
+                </div>
+            </div>
+        </div>
+        <div id="filter-bar">
+            <button class="filter-btn" data-type="concept">Concepts</button>
+            <button class="filter-btn" data-type="entity-person">People</button>
+            <button class="filter-btn" data-type="entity-org">Orgs</button>
+            <button class="filter-btn" data-type="entity-tool">Tools</button>
+        </div>
+    </div>
+    <div id="graph-container">
+        <canvas id="graph-canvas"></canvas>
+    </div>
+    <div id="detail-panel" class="hidden"></div>
+    <div id="graph-legend"></div>
+    <div class="loading-overlay">Loading knowledge graph...</div>
+    <script src="/graph.js"></script>
+</body>
+</html>

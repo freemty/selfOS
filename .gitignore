@@ -1,0 +1,55 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Media
+*.mp4
+*.mp3
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Obsidian (local config)
+.obsidian/
+
+# State files
+.labmate-hook-state.json
+.pipeline-state.json
+
+# Graph cache (rebuild with: python viewer/build_graph.py wiki)
+viewer/static/graph.json
+
+# === Personal data (keep in private branch) ===
+
+# Raw source documents
+raw/notion-notes/
+raw/claude-conversations/
+raw/gemini-conversations/
+raw/twitter-bookmarks/
+raw/assets/
+
+# Wiki content (generated from raw sources)
+# Uncomment these if you want to keep wiki content private:
+# wiki/concepts/
+# wiki/entities/
+# wiki/sources/
+# wiki/synthesis/
+
+# Personal docs
+docs/bookmark-chat-log.jsonl
+docs/papers/
+docs/archive/
+docs/weekly/
+
+# Experiments and slides
+exp/
+slides/
+
+# Personal notes
+TODO.md
+CHANGELOG.md
+/sources/
