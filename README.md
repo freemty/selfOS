@@ -24,7 +24,7 @@ Most personal knowledge tools use RAG — they re-read your raw files on every q
 
 - 🔍 **Hybrid Search** — BM25 keyword + vector semantic + LLM re-ranking via `qmd`. Three search modes for different speed/quality tradeoffs.
 
-- 📊 **Knowledge Graph Visualization** — Interactive vis.js graph with search, filters, and detail panel. See how your ideas connect.
+- 📊 **Knowledge Graph Visualization** — Interactive Canvas-based graph with glow effects, 5 color presets, search, and detail panel. See how your ideas connect.
 
 - 🤖 **Auto-Capture** — Stop hook detects valuable personal context in Claude Code conversations and silently saves to wiki. No manual tagging.
 
@@ -91,7 +91,7 @@ Complementary tools, different domains.
 
 ## Built With
 
-[Claude Code](https://claude.ai/claude-code) skill system · [vis.js](https://visjs.org/) · [Flask](https://flask.palletsprojects.com/) · [qmd](https://github.com/User/qmd)
+[Claude Code](https://claude.ai/claude-code) skill system · HTML5 Canvas · [Flask](https://flask.palletsprojects.com/)
 
 ## License
 
@@ -125,7 +125,7 @@ Complementary tools, different domains.
 
 - 🔍 **混合搜索** -- BM25 关键词 + 向量语义 + LLM re-ranking，通过 `qmd` 实现。三种搜索模式对应不同的速度/质量权衡。
 
-- 📊 **知识图谱可视化** -- 基于 vis.js 的交互式图谱，支持搜索、过滤和详情面板。直观看到你的想法如何连接。
+- 📊 **知识图谱可视化** -- 基于 Canvas 的交互式图谱，支持发光效果、5 种配色方案切换、搜索和详情面板。直观看到你的想法如何连接。
 
 - 🤖 **自动捕获** -- Stop hook 自动检测 Claude Code 对话中有价值的个人 context，静默保存到 wiki。无需手动标记。
 
@@ -192,7 +192,7 @@ raw/ (你的数据)
 
 ## 技术栈
 
-[Claude Code](https://claude.ai/claude-code) skill system · [vis.js](https://visjs.org/) · [Flask](https://flask.palletsprojects.com/) · [qmd](https://github.com/User/qmd)
+[Claude Code](https://claude.ai/claude-code) skill system · HTML5 Canvas · [Flask](https://flask.palletsprojects.com/)
 
 ## 许可证
 
