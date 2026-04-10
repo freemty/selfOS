@@ -83,6 +83,12 @@ claude
 
 That's it. Your first source will generate pages in `wiki/sources/`, `wiki/concepts/`, and `wiki/entities/`.
 
+## Documentation
+
+- [Graph Viewer](docs/guides/graph-viewer.md) -- Interactive knowledge graph visualization
+- [Importing Conversations](docs/guides/import-conversations.md) -- Claude, Gemini, Notion data import
+- [Obsidian Setup](docs/guides/obsidian-setup.md) -- View your wiki in Obsidian
+
 ## How It Works
 
 ```
@@ -220,6 +226,12 @@ claude
 ```
 
 第一个来源会自动在 `wiki/sources/`、`wiki/concepts/`、`wiki/entities/` 下生成页面。
+
+## 文档
+
+- [Graph Viewer](docs/guides/graph-viewer.md) -- 交互式知识图谱可视化
+- [导入对话](docs/guides/import-conversations.md) -- Claude、Gemini、Notion 数据导入
+- [Obsidian 配置](docs/guides/obsidian-setup.md) -- 在 Obsidian 中浏览 wiki
 
 ## 演示数据
 
