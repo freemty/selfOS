@@ -1,3 +1,4 @@
+<!-- llm-wiki -->
 # Knowledge Base
 
 This is an LLM-maintained wiki. The LLM writes and maintains all content in `wiki/`.
@@ -99,38 +100,10 @@ Skill: `.claude/skills/selfos-completion/`
 | `/interview` | Wiki asks you questions: open questions, thin pages, timeline gaps |
 | `/bookmark-chat status` | Check progress |
 
-### Auto-Capture (Chat Mode)
+### Search
 
-Stop hook automatically detects personal context in each Claude Code conversation
-and silently saves valuable content as `wiki/sources/auto-*.md`.
+To search within your wiki, use `grep` or your preferred search tool:
 
-### Search (qmd)
-
-| Command | Purpose | Example |
-|---------|---------|---------|
-| `qmd search "keyword"` | BM25 keyword search (fastest) | `qmd search "attention mechanism"` |
-| `qmd vsearch "semantic"` | Vector semantic search | `qmd vsearch "how to choose research direction"` |
-| `qmd query "question"` | Hybrid BM25 + vector + LLM re-ranking (best quality) | `qmd query "key methodologies"` |
-| `qmd search "xxx" -c wiki` | Search within a specific collection | |
-| `qmd search "xxx" --json` | JSON output (for LLM consumption) | |
-
-### Obsidian
-
-| Action | Description |
-|--------|-------------|
-| Graph View | `Cmd+P` -> "graph". Filter: `-path:wiki/sources -path:raw` to hide source layer |
-| Color Groups | Groups: `path:wiki/concepts` = blue, `path:wiki/entities` = orange |
-| Quick Search | `Cmd+O` open file, `Cmd+Shift+F` global search |
-| Dataview | Structured queries on frontmatter (requires plugin) |
-
-## Specs
-
-- `docs/specs/twitter-bookmarks-ingest.md` — Twitter bookmarks -> wiki import pipeline
-- `docs/specs/2026-04-07-knowledge-graph-scaling.md` — Knowledge graph scaling plan
-
-## Knowhow
-
-- `docs/knowhow/toolchain/` — qmd, chat export, fieldtheory, Obsidian plugin guides
-- `docs/knowhow/toolchain/obsidian-cli-integration.md` — Obsidian CLI/API integration survey
-- `docs/knowhow/debug-solutions/` — Obsidian config and other debug solutions
-- `docs/knowhow/runbooks/` — LLM wiki setup and operational runbooks
+```bash
+grep -r "keyword" wiki/
+```

@@ -4,7 +4,9 @@
 
 A Claude Code skill suite that turns scattered personal data into a three-layer markdown wiki with cross-references and citations.
 
-<!-- screenshot / demo gif placeholder -->
+> [Screenshot: Knowledge graph visualization showing interconnected concepts, entities, and sources]
+
+> Requires [Claude Code](https://claude.ai/claude-code) (`npm install -g @anthropic-ai/claude-code`)
 
 [English](#what-is-selfos) | [中文](#什么是-selfos)
 
@@ -63,25 +65,35 @@ After compilation, querying costs zero LLM tokens. Just read 2-3 markdown files.
 
 ## Quick Start
 
+### Explore the Demo
+
 ```bash
-# 1. Clone the repo
 git clone https://github.com/freemty/selfOS
 cd selfOS
 
-# 2. Open in Claude Code
+# Open in Claude Code
 claude
 
-# 3. Initialize your wiki
-/wiki init
-
-# 4. Ingest your first source
-/wiki ingest https://example.com/article
-
-# 5. Query your compiled knowledge
-/wiki query "What are my main research interests?"
+# Query the included demo wiki
+/wiki query "What is research taste?"
 ```
 
-That's it. Your first source will generate pages in `wiki/sources/`, `wiki/concepts/`, and `wiki/entities/`.
+### Start Fresh (Your Own Wiki)
+
+```bash
+git clone https://github.com/freemty/selfOS
+cd selfOS
+rm -rf wiki/sources/ wiki/concepts/ wiki/entities/ wiki/synthesis/  # clear demo content
+
+# Open in Claude Code
+claude
+
+# Initialize and ingest your first source
+/wiki init
+/wiki ingest <your-first-source>
+```
+
+Your first source will generate pages in `wiki/sources/`, `wiki/concepts/`, and `wiki/entities/`.
 
 ## Documentation
 
@@ -207,22 +219,34 @@ ls wiki/sources/ wiki/concepts/ wiki/entities/
 
 ## 快速开始
 
+前置要求：[Claude Code](https://claude.ai/claude-code)（`npm install -g @anthropic-ai/claude-code`）
+
+### 体验 Demo
+
 ```bash
-# 1. 克隆仓库
 git clone https://github.com/freemty/selfOS
 cd selfOS
 
-# 2. 在 Claude Code 中打开
+# 在 Claude Code 中打开
 claude
 
-# 3. 初始化 wiki
+# 查询内置的 demo wiki
+/wiki query "什么是 research taste？"
+```
+
+### 从零开始（构建自己的 wiki）
+
+```bash
+git clone https://github.com/freemty/selfOS
+cd selfOS
+rm -rf wiki/sources/ wiki/concepts/ wiki/entities/ wiki/synthesis/  # 清除 demo 内容
+
+# 在 Claude Code 中打开
+claude
+
+# 初始化并导入第一个来源
 /wiki init
-
-# 4. 导入第一个来源
-/wiki ingest https://example.com/article
-
-# 5. 查询编译后的知识
-/wiki query "我的主要研究兴趣是什么？"
+/wiki ingest <你的第一个来源>
 ```
 
 第一个来源会自动在 `wiki/sources/`、`wiki/concepts/`、`wiki/entities/` 下生成页面。

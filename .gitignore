@@ -16,6 +16,9 @@ venv/
 # Obsidian (local config)
 .obsidian/
 
+# Claude Code local settings
+.claude/settings.local.json
+
 # State files
 .labmate-hook-state.json
 .pipeline-state.json
