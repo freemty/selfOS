@@ -56,6 +56,7 @@ Wiki root resolution (in order):
 
 ## Common Mistakes
 
+- **Skipping source page when ingesting from conversation** — if the user says "记到 wiki" / "写入 selfos" in a live conversation, the conversation IS the source. Create `wiki/sources/cc-YYYY-MM-DD-<slug>.md` FIRST, with user's full verbatim input in `## Raw Input`. NEVER jump straight to concept/entity pages.
 - Forgetting to update `wiki/index.md` after creating/modifying pages
 - Writing source content directly into wiki pages instead of citing `[[sources/...]]`
 - Skipping `wiki/log.md` append — every operation must be logged
