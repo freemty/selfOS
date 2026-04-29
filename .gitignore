@@ -1,0 +1,49 @@
+.DS_Store
+Thumbs.db
+*.mp4
+*.mp3
+.labmate-hook-state.json
+
+# Claude export raw data — contains PII (emails, phone numbers, UUIDs)
+raw/claude-conversations/*/conversations.json
+raw/claude-conversations/*/users.json
+raw/claude-conversations/*/memories.json
+raw/claude-conversations/*/projects.json
+
+# Gemini raw JSON (contains session IDs)
+raw/gemini-conversations/*.json
+
+# labmate rules
+.pipeline-state.json
+.labmate-hook-state.json
+slides/*.html
+docs/plans/
+docs/weekly/
+exp/*/results/*
+!exp/*/results/.gitkeep
+!exp/*/results/runs.log
+__pycache__/
+
+# Graph cache (rebuild with: python viewer/build_graph.py wiki)
+# viewer/static/graph.json  # included in demo branch
+
+# Personal data (keep in private branch)
+raw/notion-notes/
+raw/claude-conversations/
+raw/gemini-conversations/
+raw/twitter-bookmarks/
+.gstack/
+
+# Data layer — excluded from template branch
+# These directories contain personal wiki content.
+# Fork users will populate them via /wiki ingest.
+wiki/sources/
+wiki/concepts/
+wiki/entities/
+wiki/synthesis/
+raw/
+
+# Batch processing artifacts
+docs/batch-*.json
+docs/deep-batch-*.json
+docs/*.jsonl

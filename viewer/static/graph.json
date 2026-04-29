@@ -1,0 +1,1211 @@
+{
+  "nodes": [
+    {
+      "id": "concepts/agent-scaling",
+      "title": "Agent Scaling",
+      "type": "concept",
+      "source_count": 10,
+      "tags": [
+        "agent",
+        "rl",
+        "scaling",
+        "ai4ai",
+        "post-training",
+        "self-evolution"
+      ],
+      "summary": "Agent 能力如何训练和 scale——从被 agent 震撼到追问训练机理，从 Agent RL 到 self-evolving agent，最终走向 meta-iteration 思维",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "concepts/ai-native组织",
+      "title": "AI Native 组织",
+      "type": "concept",
+      "source_count": 7,
+      "tags": [
+        "ai",
+        "organization",
+        "future-of-work",
+        "management",
+        "anthropic"
+      ],
+      "summary": "AI 时代催生的新组织形态——从条块逻辑到一人军团，管理层消亡而taste成为核心生产力",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "concepts/ai4ai",
+      "title": "AI4AI",
+      "type": "concept",
+      "source_count": 10,
+      "tags": [
+        "ai4ai",
+        "autonomous-research",
+        "agent",
+        "meta-science",
+        "rlvr",
+        "fars",
+        "post-training"
+      ],
+      "summary": "用 AI 做 AI 研究——从 RLVR 到自动化 reviewer、自动化 post-training、FARS 系统，最终 all-in 'rllm 就是新 lmsys/vllm，上场当 lianmin'",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "concepts/build-in-public",
+      "title": "Build in Public",
+      "type": "concept",
+      "source_count": 4,
+      "tags": [
+        "community",
+        "sharing",
+        "growth",
+        "claude-code",
+        "identity"
+      ],
+      "summary": "公开分享工作和学习过程——从小红书写作到CC实践分享，在build in public中找到独特身份和同路人",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "concepts/claude-code实践",
+      "title": "Claude Code 实践",
+      "type": "concept",
+      "source_count": 11,
+      "tags": [
+        "claude-code",
+        "tools",
+        "agent",
+        "skills",
+        "workflow",
+        "identity"
+      ],
+      "summary": "从 MCP 震撼到 skill 开发者到社区布道者——一段与 coding agent 深度共生的情感与实践弧线",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "concepts/failure-case的价值",
+      "title": "Failure Case 的价值",
+      "type": "concept",
+      "source_count": 2,
+      "tags": [
+        "research",
+        "methodology",
+        "debugging",
+        "epistemology"
+      ],
+      "summary": "Failure case 打破简单直觉、提供 anchor、强迫深入思考——做出solid工作的基础，也是被历史遗忘的现场",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "concepts/motivation与直觉",
+      "title": "Motivation 与直觉",
+      "type": "concept",
+      "source_count": 4,
+      "tags": [
+        "motivation",
+        "intuition",
+        "research",
+        "creativity",
+        "breakthrough"
+      ],
+      "summary": "产生特殊的 motivation 是直觉的最直接体现，是厚积薄发的结果，也是一切极客英雄故事的起点——2026年3月终于验证了这个理论",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "concepts/taste与ambition",
+      "title": "Taste 与 Ambition",
+      "type": "concept",
+      "source_count": 5,
+      "tags": [
+        "research",
+        "mindset",
+        "ambition",
+        "taste",
+        "confidence"
+      ],
+      "summary": "Taste 是 ambition 的副产品——只有足够 ambitious 才会发自内心认为最伟大的人与你息息相关；AI 时代最难复制的是个人的 roadmap、taste 和 ambition",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "concepts/test-time-scaling",
+      "title": "Test-Time Scaling",
+      "type": "concept",
+      "source_count": 10,
+      "tags": [
+        "test-time-scaling",
+        "multi-agent",
+        "reinforcement-learning",
+        "hle",
+        "verification",
+        "context-constraint"
+      ],
+      "summary": "通过多 agent 编排和 test-time 训练来解决开放领域科学问题——横轴(agent 协作)与纵轴(课程 RL)的二维框架，context-constraint 互补假说，verification bottleneck 是最深层未解决难题",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "concepts/人物蒸馏方法论",
+      "title": "人物蒸馏方法论",
+      "type": "concept",
+      "source_count": 11,
+      "tags": [
+        "methodology",
+        "learning",
+        "role-model",
+        "distillation",
+        "self-improvement"
+      ],
+      "summary": "从 ML 的 knowledge distillation 借来的人生方法论——系统化从 role model 身上提取可学习的模式，直面自卑与嫉妒，明明白白的学",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "concepts/历史现场感",
+      "title": "历史现场感",
+      "type": "concept",
+      "source_count": 4,
+      "tags": [
+        "methodology",
+        "research",
+        "epistemology",
+        "taste"
+      ],
+      "summary": "理解设计决策需要还原当时的情境——'当时哪些是共识、哪些还未知、为何如此选择'是科研品质的核心",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "concepts/形式倒逼行动力",
+      "title": "形式倒逼行动力",
+      "type": "concept",
+      "source_count": 3,
+      "tags": [
+        "methodology",
+        "productivity",
+        "research",
+        "psychology"
+      ],
+      "summary": "用形式和结构倒逼内容产出——fake it until make it的科研实践，对抗畏难心理的核心武器",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "concepts/科研路线选择",
+      "title": "科研路线选择",
+      "type": "concept",
+      "source_count": 9,
+      "tags": [
+        "research",
+        "career",
+        "strategy",
+        "direction",
+        "philosophy"
+      ],
+      "summary": "从 Sink pre-training 到 Agent post-training 再到 AI4AI 的路线演变——'马车和火车'的判断力、'左派科研'和'右派科研'的价值观振荡、最终的 all-in",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "concepts/自我记录与反思",
+      "title": "自我记录与反思",
+      "type": "concept",
+      "source_count": 8,
+      "tags": [
+        "self-improvement",
+        "lifeos",
+        "methodology",
+        "ai-augmented",
+        "metacognition"
+      ],
+      "summary": "频繁记录是 scalable 自我觉察的基础——写入样本点，才能做模式识别；AI 时代每日流水账就是最大的财富",
+      "created": "2026-04-05",
+      "updated": "2026-04-07"
+    },
+    {
+      "id": "concepts/被动context交付",
+      "title": "被动 Context 交付",
+      "type": "concept",
+      "source_count": 1,
+      "tags": [
+        "interaction",
+        "agent",
+        "context",
+        "paradigm-shift",
+        "selfos",
+        "dpo"
+      ],
+      "summary": "Agent 时代的交互革命——Context 记录从'主动调动意志'变为'被动交付'，LLM 主动提问收集人的隐式 Context，形成数据飞轮",
+      "created": "2026-04-07",
+      "updated": "2026-04-07"
+    },
+    {
+      "id": "entities/anthropic",
+      "title": "Anthropic",
+      "type": "entity-org",
+      "source_count": 5,
+      "tags": [
+        "organization",
+        "ai-company",
+        "ai-native"
+      ],
+      "summary": "Claude和Claude Code的开发公司——被视为AI-native组织的终极范本，'降维打击'的代名词",
+      "created": "2026-04-05",
+      "updated": "2026-04-07"
+    },
+    {
+      "id": "entities/claude-code",
+      "title": "Claude Code",
+      "type": "entity-org",
+      "source_count": 8,
+      "tags": [
+        "tool",
+        "agent",
+        "anthropic",
+        "coding",
+        "organization"
+      ],
+      "summary": "Anthropic的coding agent CLI——作者的核心开发工具、skill开发平台、AI-native工作方式的个人实践载体",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "entities/fars",
+      "title": "FARS (Full Autonomous Research System)",
+      "type": "entity-tool",
+      "source_count": 5,
+      "tags": [
+        "project",
+        "ai4ai",
+        "autonomous-research",
+        "agent"
+      ],
+      "summary": "全自动科研系统——包含自动化 reviewer、idea generation 等模块，是 AI4AI 理念的核心工程实现，代表了'rllm 就是新 lmsys/vllm'的基础设施野心",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "entities/ilya-sutskever",
+      "title": "Ilya Sutskever",
+      "type": "entity-person",
+      "source_count": 5,
+      "tags": [
+        "role-model",
+        "ai-pioneer",
+        "ambition-anchor",
+        "openai"
+      ],
+      "summary": "三大 Big-name Role Model 之首——作者的终极 ambition 锚点，'成为 Ilya 又有什么不可能的呢'",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "entities/lifeos",
+      "title": "LifeOS",
+      "type": "entity-tool",
+      "source_count": 6,
+      "tags": [
+        "project",
+        "productivity",
+        "notion",
+        "ai",
+        "mcp"
+      ],
+      "summary": "基于Notion + Claude Code的个人操作系统——从手动记录到LifeOS-Zero(build everything via prompt)，'比我自己还了解自己'",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "entities/姚顺雨",
+      "title": "姚顺雨",
+      "type": "entity-person",
+      "source_count": 3,
+      "tags": [
+        "role-model",
+        "researcher",
+        "agent",
+        "llm",
+        "distillation"
+      ],
+      "summary": "Agent/LLM 方向的学术标杆——通过 YouTube 3h 访谈进行深度蒸馏",
+      "created": "2026-04-05",
+      "updated": "2026-04-07"
+    },
+    {
+      "id": "entities/田渊栋",
+      "title": "田渊栋",
+      "type": "entity-person",
+      "source_count": 1,
+      "tags": [
+        "role-model",
+        "researcher",
+        "meta-fair",
+        "distillation"
+      ],
+      "summary": "Meta FAIR 研究员，学术 role model 级别蒸馏对象——代表了中国背景研究者在顶级实验室的深度思考标杆",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "entities/陈天奇",
+      "title": "陈天奇",
+      "type": "entity-person",
+      "source_count": 1,
+      "tags": [
+        "role-model",
+        "researcher",
+        "ml-systems"
+      ],
+      "summary": "ML 系统领域标杆——《机器学习科研这十年》的分享提供了科研路线的长期视角",
+      "created": "2026-04-05",
+      "updated": "2026-04-05"
+    },
+    {
+      "id": "synthesis/llm-wiki-meta-reflection",
+      "title": "LLM Wiki 元反思：当 AI 比你更了解你",
+      "type": "synthesis",
+      "source_count": 0,
+      "tags": [
+        "meta",
+        "reflection",
+        "llm-wiki",
+        "self-knowledge",
+        "methodology"
+      ],
+      "summary": "构建 LLM Wiki 后的三个核心发现：草蛇灰线的连接、context 缺失检测、口述历史式补全",
+      "created": "2026-04-07",
+      "updated": "2026-04-07"
+    }
+  ],
+  "edges": [
+    {
+      "from": "concepts/agent-scaling",
+      "to": "concepts/科研路线选择",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/agent-scaling",
+      "to": "concepts/ai4ai",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/agent-scaling",
+      "to": "concepts/claude-code实践",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/agent-scaling",
+      "to": "concepts/test-time-scaling",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/ai-native组织",
+      "to": "concepts/claude-code实践",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/ai-native组织",
+      "to": "concepts/agent-scaling",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/ai-native组织",
+      "to": "concepts/build-in-public",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/ai4ai",
+      "to": "concepts/科研路线选择",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/ai4ai",
+      "to": "concepts/claude-code实践",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/ai4ai",
+      "to": "concepts/test-time-scaling",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/ai4ai",
+      "to": "concepts/agent-scaling",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/build-in-public",
+      "to": "concepts/claude-code实践",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/build-in-public",
+      "to": "concepts/ai-native组织",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/build-in-public",
+      "to": "concepts/形式倒逼行动力",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/claude-code实践",
+      "to": "concepts/ai4ai",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/claude-code实践",
+      "to": "concepts/ai-native组织",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/claude-code实践",
+      "to": "concepts/build-in-public",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/claude-code实践",
+      "to": "concepts/形式倒逼行动力",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/claude-code实践",
+      "to": "concepts/历史现场感",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/failure-case的价值",
+      "to": "concepts/科研路线选择",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/failure-case的价值",
+      "to": "concepts/历史现场感",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/failure-case的价值",
+      "to": "concepts/形式倒逼行动力",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/motivation与直觉",
+      "to": "concepts/科研路线选择",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/motivation与直觉",
+      "to": "concepts/taste与ambition",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/motivation与直觉",
+      "to": "concepts/claude-code实践",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/motivation与直觉",
+      "to": "concepts/历史现场感",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/motivation与直觉",
+      "to": "concepts/形式倒逼行动力",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/taste与ambition",
+      "to": "concepts/科研路线选择",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/taste与ambition",
+      "to": "concepts/ai-native组织",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/taste与ambition",
+      "to": "concepts/motivation与直觉",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/taste与ambition",
+      "to": "concepts/人物蒸馏方法论",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/test-time-scaling",
+      "to": "concepts/ai4ai",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/test-time-scaling",
+      "to": "concepts/agent-scaling",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/人物蒸馏方法论",
+      "to": "entities/田渊栋",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/人物蒸馏方法论",
+      "to": "concepts/自我记录与反思",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/人物蒸馏方法论",
+      "to": "entities/姚顺雨",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/人物蒸馏方法论",
+      "to": "concepts/历史现场感",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/人物蒸馏方法论",
+      "to": "entities/ilya-sutskever",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/人物蒸馏方法论",
+      "to": "concepts/taste与ambition",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/历史现场感",
+      "to": "concepts/科研路线选择",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/历史现场感",
+      "to": "concepts/taste与ambition",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/历史现场感",
+      "to": "concepts/claude-code实践",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/历史现场感",
+      "to": "concepts/failure-case的价值",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/历史现场感",
+      "to": "concepts/人物蒸馏方法论",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/形式倒逼行动力",
+      "to": "concepts/build-in-public",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/形式倒逼行动力",
+      "to": "concepts/自我记录与反思",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/科研路线选择",
+      "to": "concepts/ai4ai",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/科研路线选择",
+      "to": "concepts/taste与ambition",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/科研路线选择",
+      "to": "concepts/agent-scaling",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/自我记录与反思",
+      "to": "concepts/taste与ambition",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/自我记录与反思",
+      "to": "concepts/形式倒逼行动力",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/自我记录与反思",
+      "to": "concepts/被动context交付",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/被动context交付",
+      "to": "concepts/taste与ambition",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/被动context交付",
+      "to": "concepts/ai-native组织",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/被动context交付",
+      "to": "concepts/agent-scaling",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/被动context交付",
+      "to": "concepts/自我记录与反思",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/anthropic",
+      "to": "concepts/claude-code实践",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/anthropic",
+      "to": "concepts/ai-native组织",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/anthropic",
+      "to": "entities/claude-code",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/claude-code",
+      "to": "entities/anthropic",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/claude-code",
+      "to": "entities/lifeos",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/claude-code",
+      "to": "concepts/claude-code实践",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/claude-code",
+      "to": "concepts/ai-native组织",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/claude-code",
+      "to": "concepts/build-in-public",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/fars",
+      "to": "concepts/ai4ai",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/fars",
+      "to": "concepts/test-time-scaling",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/fars",
+      "to": "concepts/agent-scaling",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/fars",
+      "to": "entities/claude-code",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/ilya-sutskever",
+      "to": "concepts/taste与ambition",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/ilya-sutskever",
+      "to": "concepts/人物蒸馏方法论",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/lifeos",
+      "to": "concepts/ai-native组织",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/lifeos",
+      "to": "concepts/自我记录与反思",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/lifeos",
+      "to": "entities/claude-code",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/姚顺雨",
+      "to": "concepts/科研路线选择",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/姚顺雨",
+      "to": "concepts/agent-scaling",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/姚顺雨",
+      "to": "concepts/人物蒸馏方法论",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/姚顺雨",
+      "to": "concepts/被动context交付",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/田渊栋",
+      "to": "concepts/人物蒸馏方法论",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/田渊栋",
+      "to": "concepts/科研路线选择",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/陈天奇",
+      "to": "concepts/历史现场感",
+      "type": "wikilink"
+    },
+    {
+      "from": "entities/陈天奇",
+      "to": "concepts/科研路线选择",
+      "type": "wikilink"
+    },
+    {
+      "from": "synthesis/llm-wiki-meta-reflection",
+      "to": "concepts/科研路线选择",
+      "type": "wikilink"
+    },
+    {
+      "from": "synthesis/llm-wiki-meta-reflection",
+      "to": "concepts/taste与ambition",
+      "type": "wikilink"
+    },
+    {
+      "from": "synthesis/llm-wiki-meta-reflection",
+      "to": "concepts/历史现场感",
+      "type": "wikilink"
+    },
+    {
+      "from": "synthesis/llm-wiki-meta-reflection",
+      "to": "concepts/人物蒸馏方法论",
+      "type": "wikilink"
+    },
+    {
+      "from": "synthesis/llm-wiki-meta-reflection",
+      "to": "concepts/自我记录与反思",
+      "type": "wikilink"
+    },
+    {
+      "from": "synthesis/llm-wiki-meta-reflection",
+      "to": "concepts/被动context交付",
+      "type": "wikilink"
+    },
+    {
+      "from": "concepts/agent-scaling",
+      "to": "concepts/ai4ai",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/agent-scaling",
+      "to": "concepts/claude-code实践",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/agent-scaling",
+      "to": "concepts/被动context交付",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/agent-scaling",
+      "to": "entities/claude-code",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/agent-scaling",
+      "to": "entities/fars",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/agent-scaling",
+      "to": "entities/姚顺雨",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/ai4ai",
+      "to": "concepts/claude-code实践",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/ai4ai",
+      "to": "concepts/被动context交付",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/ai4ai",
+      "to": "entities/claude-code",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/ai4ai",
+      "to": "entities/fars",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/ai4ai",
+      "to": "entities/姚顺雨",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/claude-code实践",
+      "to": "concepts/被动context交付",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/claude-code实践",
+      "to": "entities/claude-code",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/claude-code实践",
+      "to": "entities/fars",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/claude-code实践",
+      "to": "entities/姚顺雨",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/被动context交付",
+      "to": "entities/claude-code",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/被动context交付",
+      "to": "entities/fars",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/被动context交付",
+      "to": "entities/姚顺雨",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "entities/claude-code",
+      "to": "entities/fars",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "entities/claude-code",
+      "to": "entities/姚顺雨",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "entities/fars",
+      "to": "entities/姚顺雨",
+      "type": "shared_tag",
+      "tag": "agent"
+    },
+    {
+      "from": "concepts/ai-native组织",
+      "to": "entities/lifeos",
+      "type": "shared_tag",
+      "tag": "ai"
+    },
+    {
+      "from": "concepts/ai-native组织",
+      "to": "entities/anthropic",
+      "type": "shared_tag",
+      "tag": "organization"
+    },
+    {
+      "from": "concepts/ai-native组织",
+      "to": "entities/claude-code",
+      "type": "shared_tag",
+      "tag": "organization"
+    },
+    {
+      "from": "entities/anthropic",
+      "to": "entities/claude-code",
+      "type": "shared_tag",
+      "tag": "organization"
+    },
+    {
+      "from": "concepts/build-in-public",
+      "to": "concepts/claude-code实践",
+      "type": "shared_tag",
+      "tag": "claude-code"
+    },
+    {
+      "from": "concepts/failure-case的价值",
+      "to": "concepts/motivation与直觉",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/failure-case的价值",
+      "to": "concepts/taste与ambition",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/failure-case的价值",
+      "to": "concepts/历史现场感",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/failure-case的价值",
+      "to": "concepts/形式倒逼行动力",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/failure-case的价值",
+      "to": "concepts/科研路线选择",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/motivation与直觉",
+      "to": "concepts/taste与ambition",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/motivation与直觉",
+      "to": "concepts/历史现场感",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/motivation与直觉",
+      "to": "concepts/形式倒逼行动力",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/motivation与直觉",
+      "to": "concepts/科研路线选择",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/taste与ambition",
+      "to": "concepts/历史现场感",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/taste与ambition",
+      "to": "concepts/形式倒逼行动力",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/taste与ambition",
+      "to": "concepts/科研路线选择",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/历史现场感",
+      "to": "concepts/形式倒逼行动力",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/历史现场感",
+      "to": "concepts/科研路线选择",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/形式倒逼行动力",
+      "to": "concepts/科研路线选择",
+      "type": "shared_tag",
+      "tag": "research"
+    },
+    {
+      "from": "concepts/failure-case的价值",
+      "to": "concepts/人物蒸馏方法论",
+      "type": "shared_tag",
+      "tag": "methodology"
+    },
+    {
+      "from": "concepts/failure-case的价值",
+      "to": "concepts/自我记录与反思",
+      "type": "shared_tag",
+      "tag": "methodology"
+    },
+    {
+      "from": "concepts/failure-case的价值",
+      "to": "synthesis/llm-wiki-meta-reflection",
+      "type": "shared_tag",
+      "tag": "methodology"
+    },
+    {
+      "from": "concepts/人物蒸馏方法论",
+      "to": "concepts/历史现场感",
+      "type": "shared_tag",
+      "tag": "methodology"
+    },
+    {
+      "from": "concepts/人物蒸馏方法论",
+      "to": "concepts/形式倒逼行动力",
+      "type": "shared_tag",
+      "tag": "methodology"
+    },
+    {
+      "from": "concepts/人物蒸馏方法论",
+      "to": "concepts/自我记录与反思",
+      "type": "shared_tag",
+      "tag": "methodology"
+    },
+    {
+      "from": "concepts/人物蒸馏方法论",
+      "to": "synthesis/llm-wiki-meta-reflection",
+      "type": "shared_tag",
+      "tag": "methodology"
+    },
+    {
+      "from": "concepts/历史现场感",
+      "to": "concepts/自我记录与反思",
+      "type": "shared_tag",
+      "tag": "methodology"
+    },
+    {
+      "from": "concepts/历史现场感",
+      "to": "synthesis/llm-wiki-meta-reflection",
+      "type": "shared_tag",
+      "tag": "methodology"
+    },
+    {
+      "from": "concepts/形式倒逼行动力",
+      "to": "concepts/自我记录与反思",
+      "type": "shared_tag",
+      "tag": "methodology"
+    },
+    {
+      "from": "concepts/形式倒逼行动力",
+      "to": "synthesis/llm-wiki-meta-reflection",
+      "type": "shared_tag",
+      "tag": "methodology"
+    },
+    {
+      "from": "concepts/自我记录与反思",
+      "to": "synthesis/llm-wiki-meta-reflection",
+      "type": "shared_tag",
+      "tag": "methodology"
+    },
+    {
+      "from": "concepts/人物蒸馏方法论",
+      "to": "entities/ilya-sutskever",
+      "type": "shared_tag",
+      "tag": "role-model"
+    },
+    {
+      "from": "concepts/人物蒸馏方法论",
+      "to": "entities/姚顺雨",
+      "type": "shared_tag",
+      "tag": "role-model"
+    },
+    {
+      "from": "concepts/人物蒸馏方法论",
+      "to": "entities/田渊栋",
+      "type": "shared_tag",
+      "tag": "role-model"
+    },
+    {
+      "from": "concepts/人物蒸馏方法论",
+      "to": "entities/陈天奇",
+      "type": "shared_tag",
+      "tag": "role-model"
+    },
+    {
+      "from": "entities/ilya-sutskever",
+      "to": "entities/姚顺雨",
+      "type": "shared_tag",
+      "tag": "role-model"
+    },
+    {
+      "from": "entities/ilya-sutskever",
+      "to": "entities/田渊栋",
+      "type": "shared_tag",
+      "tag": "role-model"
+    },
+    {
+      "from": "entities/ilya-sutskever",
+      "to": "entities/陈天奇",
+      "type": "shared_tag",
+      "tag": "role-model"
+    },
+    {
+      "from": "entities/姚顺雨",
+      "to": "entities/田渊栋",
+      "type": "shared_tag",
+      "tag": "role-model"
+    },
+    {
+      "from": "entities/姚顺雨",
+      "to": "entities/陈天奇",
+      "type": "shared_tag",
+      "tag": "role-model"
+    },
+    {
+      "from": "entities/田渊栋",
+      "to": "entities/陈天奇",
+      "type": "shared_tag",
+      "tag": "role-model"
+    },
+    {
+      "from": "concepts/形式倒逼行动力",
+      "to": "entities/lifeos",
+      "type": "shared_tag",
+      "tag": "productivity"
+    },
+    {
+      "from": "entities/fars",
+      "to": "entities/lifeos",
+      "type": "shared_tag",
+      "tag": "project"
+    }
+  ]
+}
