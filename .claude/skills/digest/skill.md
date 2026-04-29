@@ -10,7 +10,7 @@ Review what changed in your wiki and get a recommended question to deepen your k
 
 ## Wiki Root
 
-**Always resolve to `~/selfOS/` (absolute: `/Users/sum_young/selfOS/`).** All paths (`wiki/`, `docs/`) are relative to this root. If CWD is not selfOS, use absolute paths.
+**Always resolve to `~/selfOS/`.** All paths (`wiki/`, `docs/`) are relative to this root. If CWD is not selfOS, use absolute paths.
 
 ## When to Use
 

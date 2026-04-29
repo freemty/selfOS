@@ -10,7 +10,7 @@ Recover latent context from past fragments. Three modes, one principle: **LLM pr
 
 ## Wiki Root
 
-**Always resolve wiki root to `~/selfOS/` (absolute path: `/Users/sum_young/selfOS/`).** All relative paths below (`wiki/`, `docs/`, `scripts/`) are relative to this root, NOT to the current working directory. If CWD is not selfOS, `cd ~/selfOS` first or use absolute paths.
+**Always resolve wiki root to `~/selfOS/`.** All relative paths below (`wiki/`, `docs/`, `scripts/`) are relative to this root, NOT to the current working directory. If CWD is not selfOS, `cd ~/selfOS` first or use absolute paths.
 
 ## When to Use
 

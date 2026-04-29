@@ -21,7 +21,7 @@
 
 4. **Construct item line**:
    ```
-   - [T007] 回复张昊邮件 @2026-04-29 #admin
+   - [T007] 回复导师邮件 @2026-04-29 #admin
    ```
    - `@日期` = 今天
    - `#tag` = 用户提供的 tag，可选
@@ -34,7 +34,7 @@
 
 7. **Confirm**:
    ```
-   ✅ [T007] 回复张昊邮件 @2026-04-29 #admin → Pool
+   ✅ [T007] 回复导师邮件 @2026-04-29 #admin → Pool
    ```
 
 ## Batch Add
@@ -43,9 +43,9 @@
 
 ```
 ✅ 已添加 3 项到 Do Pool:
-- [T007] 回复张昊邮件 @2026-04-29 #admin
+- [T007] 回复导师邮件 @2026-04-29 #admin
 - [T008] 写 weekly report @2026-04-29 #admin
-- [T009] 提交 UCSD housing form @2026-04-29 #admin
+- [T009] 提交 housing form @2026-04-29 #admin
 ```
 
 ## Edge Cases

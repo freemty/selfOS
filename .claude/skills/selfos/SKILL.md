@@ -28,7 +28,7 @@ Persistent, compounding knowledge base. Raw sources are compiled once into inter
 
 Wiki root resolution (in order):
 1. Current directory has `CLAUDE.md` with `<!-- llm-wiki -->` marker
-2. **`~/selfOS/` (absolute: `/Users/sum_young/selfOS/`)** — the canonical wiki location
+2. **`~/selfOS/`** — the canonical wiki location (run `setup.sh` to configure your path)
 3. Suggest `/wiki init`
 
 **Important:** When CWD is not the wiki root, always use absolute paths (`~/selfOS/wiki/...`) or `cd ~/selfOS` before operating. Never assume `wiki/` resolves to the selfOS wiki from other directories.
