@@ -47,3 +47,4 @@ raw/
 docs/batch-*.json
 docs/deep-batch-*.json
 docs/*.jsonl
+.playwright-mcp/

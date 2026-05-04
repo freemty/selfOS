@@ -45,7 +45,7 @@
 ✅ 已添加 3 项到 Do Pool:
 - [T007] 回复导师邮件 @2026-04-29 #admin
 - [T008] 写 weekly report @2026-04-29 #admin
-- [T009] 提交 housing form @2026-04-29 #admin
+- [T009] 提交学校 housing form @2026-04-29 #admin
 ```
 
 ## Edge Cases

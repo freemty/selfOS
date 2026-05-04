@@ -4,7 +4,7 @@ Pull new/updated notes from Notion LifeOS → compile into wiki.
 
 ## Context
 
-- Wiki root: resolved per SKILL.md "Wiki root resolution" rules
+- Wiki root: `~/selfOS/` (absolute: `/Users/<username>/selfOS/`)
 - Sync state file: `docs/sync-state.json` (contains `database_id`, `last_sync`, `synced_notion_ids`)
 
 ## Steps
@@ -105,7 +105,7 @@ git commit -m "feat(wiki): sync {N} notes from Notion"
 ## Notes
 
 - Short "Thoughts" notes (title-only or 1-2 lines) are valid — the title IS the content.
-  They may be enriched later via `/complete` (selfos-completion skill).
+  They may be enriched later via `/complete` (interview skill).
 - If a note was already synced but updated in Notion, update the existing `wiki/sources/` page
   rather than creating a duplicate. Add a `## Revision Notes` section.
 - Deleted Notion pages are NOT detected by this workflow (Notion API does not return them).

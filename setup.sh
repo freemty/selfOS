@@ -13,7 +13,7 @@ mkdir -p "$SKILLS_DIR"
 
 # 1. Global skill symlinks
 echo "Registering global skill symlinks..."
-for skill in selfos selfos-completion thought digest; do
+for skill in wiki interview thought digest todo wiki-help; do
   target="$SELFOS_DIR/.claude/skills/$skill"
   link="$SKILLS_DIR/$skill"
   if [ ! -d "$target" ]; then

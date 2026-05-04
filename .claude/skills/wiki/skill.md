@@ -1,10 +1,10 @@
 ---
-name: selfos
-description: "Use when ingesting sources into the personal knowledge base, querying compiled knowledge, running wiki health checks, or batch compiling raw sources. Triggers: /wiki, selfos, knowledge base, ingest, compile, query wiki. For context recovery (/interview, /bookmark-chat, /complete), use selfos-completion instead."
+name: wiki
+description: "Wiki CRUD — ingest sources, query compiled knowledge, lint, compile, synthesize. Triggers: /wiki, ingest, compile, query wiki, lint, synthesize, wiki status."
 user-invocable: true
 ---
 
-# selfOS Wiki
+# /wiki — Wiki CRUD
 
 Persistent, compounding knowledge base. Raw sources are compiled once into interlinked markdown — not re-derived on every query.
 
@@ -22,13 +22,13 @@ Persistent, compounding knowledge base. Raw sources are compiled once into inter
 - Ingesting articles, PDFs, conversations, or notes
 - Querying across compiled knowledge with citations
 
-**Not for:** project-specific docs (use CLAUDE.md), ephemeral task notes (use tasks), code documentation
+**Not for:** capturing thoughts (`/thought`), managing tasks (`/todo`), context recovery/追问 (`/interview`), reviewing activity (`/digest`)
 
 ## Dispatching
 
 Wiki root resolution (in order):
 1. Current directory has `CLAUDE.md` with `<!-- llm-wiki -->` marker
-2. **`~/selfOS/`** — the canonical wiki location (run `setup.sh` to configure your path)
+2. **`~/selfOS/` (absolute: `/Users/<username>/selfOS/`)** — the canonical wiki location
 3. Suggest `/wiki init`
 
 **Important:** When CWD is not the wiki root, always use absolute paths (`~/selfOS/wiki/...`) or `cd ~/selfOS` before operating. Never assume `wiki/` resolves to the selfOS wiki from other directories.
@@ -43,10 +43,9 @@ Wiki root resolution (in order):
 | `/wiki lint` | Orphans, missing pages, stale claims, broken frontmatter | Read `references/lint-workflow.md` |
 | `/wiki status` | File counts, word count, last 5 log entries | Direct (no reference needed) |
 | `/wiki compile` | Batch-ingest all un-processed `raw/` files | Batches of ~10, commit per batch |
+| `/wiki synthesize` | Scan for synthesis-worthy clusters → recommend → write | Read `references/synthesize-workflow.md` |
 | `/wiki sync` | Pull new/updated Notion notes → compile into wiki | Read `references/sync-workflow.md` |
 **For every command except status:** read the corresponding `references/` file for the full step-by-step workflow before executing.
-
-**Context recovery** (`/interview`, `/bookmark-chat`, `/complete`): use **selfos-completion** skill instead.
 
 ## Quick Reference
 

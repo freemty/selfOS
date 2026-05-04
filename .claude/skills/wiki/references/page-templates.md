@@ -102,8 +102,10 @@ notion_id: "{notion page id if from Notion}"
 Sections:
 - `## Summary` — 2-5 sentence summary
 - `## Key Takeaways` — Bulleted list of main points
+- `## Q&A 序列` — (conversation-type only) User's questions + agent's answers in original order. Include when the user asked 3+ substantive questions about the topic. The question sequence reveals cognitive gaps and learning trajectory — this is often the highest-value section.
 - `## Concepts` — Links to concept pages touched by this source
 - `## Entities` — Links to entity pages mentioned
+- `## 完整原文` — (conversation-type only) User's full original input, verbatim with formatting preserved
 
 ## Concept Page Template
 
@@ -135,6 +137,7 @@ created: {YYYY-MM-DD}
 updated: {YYYY-MM-DD}
 sources: ["source-slug-1"]
 tags: []
+aliases: ["{alt-name-1}", "{alt-name-2}"]
 summary: "{One-line summary}"
 entity_type: "person | organization | tool | paper | dataset | project"
 ---

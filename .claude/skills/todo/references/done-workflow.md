@@ -16,13 +16,17 @@
 
 ### 2. Find & Remove Item Lines
 
-For each ID:
-1. Read the target file
-2. Search both `## Today` and `## Pool` for the item line matching `[<ID>]`
-3. Remove the line from the file
-4. If ID not found, report error and skip
+Read each target file **once** (not per-ID). For all IDs grouped to that file:
+1. Search both `## Today` and `## Pool` for item lines matching each `[<ID>]`
+2. Remove all matched lines in one edit
+3. If any ID not found, report error and skip that ID
+4. Write the file back once with all removals applied
 
-### 3. Write to Archive
+### 3. Write to Archive + Log + Frontmatter (parallel)
+
+Steps 3, 4, 5 below are independent writes — execute them in parallel.
+
+**3a. Archive:**
 
 Target: `wiki/tasks/archive/YYYY-MM.md` (current month)
 
@@ -47,17 +51,12 @@ Format: original item line + ` ✓YYYY-MM-DD` (today's date) inserted before the
 
 Update archive frontmatter `updated` date.
 
-### 4. Log to wiki/log.md
-
-Append one line per completed item:
+**3b. Log** — append one line per completed item to `wiki/log.md`:
 ```
 - 2026-04-29 | done | [T001] 写 GPU systems 补课笔记
 ```
 
-### 5. Update Source File Frontmatter
-
-For each modified file (do.md / read.md):
-- `updated` = today
+**3c. Frontmatter** — for each modified file (do.md / read.md): `updated` = today
 
 ### 6. R-Item Ingest Prompt（批量模式）
 

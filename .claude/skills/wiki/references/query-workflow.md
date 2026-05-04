@@ -10,7 +10,7 @@ You are answering a question against the LLM Wiki.
 
 ### 1. Search the wiki
 Read `wiki/index.md` to identify relevant pages.
-Run: `bash ~/.claude/skills/selfos/scripts/wiki-search.sh "{wiki_root}" "{keywords}"`
+Run: `bash ~/.claude/skills/wiki/scripts/wiki-search.sh "{wiki_root}" "{keywords}"`
 
 ### 2. Read relevant pages
 Read all pages that might contain relevant information. Prioritize:

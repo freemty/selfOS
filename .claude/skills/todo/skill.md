@@ -10,7 +10,7 @@ Dual-track todo system: **do** (actions) and **read** (things to absorb). Daily 
 
 ## Wiki Root
 
-**Always resolve to `~/selfOS/`.** All paths (`wiki/tasks/`) are relative to this root.
+**Always resolve to `~/selfOS/` (absolute: `/Users/<username>/selfOS/`).** All paths (`wiki/tasks/`) are relative to this root.
 
 ## When to Use
 

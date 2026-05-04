@@ -1,33 +1,34 @@
 ---
-name: selfos-completion
-description: "Use when recovering latent context from past fragments — terse Notion thoughts missing context, Twitter bookmarks without rationale, or wiki pages with open questions and timeline gaps. Triggers: /bookmark-chat, /complete, /interview, context recovery, fill gaps."
+name: interview
+description: "All追问 in one place — recover context from old thoughts, bookmark-chat, wiki gaps, or follow up on a just-captured /thought. Triggers: /interview, /bookmark-chat, /complete, context recovery, fill gaps, 追问."
 user-invocable: true
 ---
 
-# selfOS Completion
+# /interview — Unified追问
 
-Recover latent context from past fragments. Three modes, one principle: **LLM presents a key, human restores the value.**
+LLM presents a key, human restores the value. Covers all context-recovery and gap-filling use cases.
 
 ## Wiki Root
 
-**Always resolve wiki root to `~/selfOS/`.** All relative paths below (`wiki/`, `docs/`, `scripts/`) are relative to this root, NOT to the current working directory. If CWD is not selfOS, `cd ~/selfOS` first or use absolute paths.
+**Always resolve to `~/selfOS/` (absolute: `/Users/<username>/selfOS/`).** All paths below are relative to this root.
 
 ## When to Use
 
-- User says `/bookmark-chat`, `/complete`, or `/interview`
+- User says `/interview`, `/bookmark-chat`, `/complete`
+- Another skill (e.g. `/thought`, `/digest`) hands off for追问
 - Wiki has terse thoughts, unprocessed bookmarks, or context gaps
-- User wants to enrich past records with recovered context
 
-**Not for:** ingesting new sources (use `/wiki ingest`), querying wiki (use `/wiki query`)
+**Not for:** ingesting new sources (`/wiki ingest`), querying wiki (`/wiki query`), capturing a thought (`/thought`), reviewing activity (`/digest`)
 
 ## Modes
 
 | Command | Pool | What it picks |
 |---------|------|---------------|
-| `/bookmark-chat` | Twitter bookmarks | Bookmarked tweets missing "why I saved this" |
-| `/complete` or `/bookmark-chat thoughts` | Notion Thoughts | One-line thoughts missing context |
 | `/interview` | Wiki gaps + pending questions | Pending偏好追问 → Open Questions → Thin pages → Timeline gaps |
-| (no args) | Mixed bookmarks + thoughts | Random from either pool |
+| `/interview thought` | Just-captured thought | Follow up on the most recent `/thought` entry |
+| `/bookmark-chat` | Twitter bookmarks | Bookmarked tweets missing "why I saved this" |
+| `/complete` | Notion Thoughts | One-line thoughts missing context |
+| (no args to /bookmark-chat) | Mixed bookmarks + thoughts | Random from either pool |
 
 ## Quick Reference
 
@@ -89,14 +90,14 @@ Recover latent context from past fragments. Three modes, one principle: **LLM pr
 **关联概念：** [[concept-1]], [[concept-2]]
 ```
 
-## Interview Mode
+## Interview Mode (Wiki Gaps)
 
 Run `python3 {wiki_root}/scripts/interview-questions.py` → JSON with prioritized gaps:
 
 | Priority | Type | Source |
 |----------|------|--------|
 | 0 | Pending Questions | Auto-Capture 标记的未展开偏好/判断（`pending_questions` frontmatter） |
-| 1 | Stale Concepts | 概念页 `updated` 落后于最新 source 超过 7 天——理解没追上证据 |
+| 1 | Stale Concepts | 概念页 `updated` 落后于最新 source 超过 7 天 |
 | 1 | Open Questions | 概念页底部的 Open Questions |
 | 2 | Thin Pages | 概念/实体页 < 100 词 |
 | 2 | Vague Entities | 实体页 Mentions 为空或过短 |
@@ -106,7 +107,7 @@ Run `python3 {wiki_root}/scripts/interview-questions.py` → JSON with prioritiz
 - One question at a time, conversational tone
 - Reference existing wiki content to make questions specific
 - **Silently update** relevant wiki pages after each answer
-- For `pending_question` type: after absorbing the answer, **remove that question from the source file's `pending_questions` frontmatter list**. If the list becomes empty, remove the `pending_questions` field entirely.
+- For `pending_question` type: after absorbing the answer, **remove that question from the source file's `pending_questions` frontmatter list**
 - 3-5 questions per session, then commit
 
 ## Shared: Dialogue → Write

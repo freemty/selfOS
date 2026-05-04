@@ -89,15 +89,20 @@ When new data contradicts existing wiki content:
 
 ### Wiki Operations
 
+Skill: `.claude/skills/wiki/` → symlink at `~/.claude/skills/wiki`
+
 | Command | Purpose | Example |
 |---------|---------|---------|
 | `/wiki query "问题"` | 搜索 wiki + 综合回答，可选 file back 到 synthesis/ | `/wiki query "我的科研路线演变"` |
 | `/wiki ingest <url>` | 抓取网页/PDF → 编译进 wiki（source + concept + entity） | `/wiki ingest https://arxiv.org/abs/xxx` |
 | `/wiki lint` | 健康检查：断链、孤页、缺失引用、frontmatter 错误 | `/wiki lint` |
 | `/wiki compile` | 批量编译 raw/ 中未处理的源文件 | `/wiki compile` |
+| `/wiki synthesize` | 扫描 synthesis 候选 → 推荐 → 引导写综合 | `/wiki synthesize` |
 | `/wiki status` | 统计：页面数、字数、最近活动 | `/wiki status` |
 
 ### Todo Stack
+
+Skill: `.claude/skills/todo/` → symlink at `~/.claude/skills/todo`
 
 | Command | Purpose | Example |
 |---------|---------|---------|
@@ -108,7 +113,7 @@ When new data contradicts existing wiki content:
 | `/todo list` | 查看当前 Today + Pool | `/todo list` |
 | `/todo list archive` | 查看月度归档 | `/todo list archive 2026-03` |
 
-用户心智模型：`/thought` 记想法 → `/todo` 管行动 → `/interview` 让 wiki 问我 → `/digest` 回顾变化 → `/wiki` 管理
+用户心智模型：`/thought` 记想法 → `/todo` 管行动 → `/interview` 让 wiki 问我 → `/digest` 回顾变化 → `/wiki` 管理 → `/wiki-help` 速查
 
 ### Quick Thought Capture
 
@@ -116,9 +121,9 @@ Skill: `.claude/skills/thought/` → symlink at `~/.claude/skills/thought`
 
 | Command | Purpose | Example |
 |---------|---------|---------|
-| `/thought <text>` | 快速写入一句话想法 + 立刻 interview 补充 context | `/thought agent时代最大的杠杆是taste` |
+| `/thought <text>` | 快速记录想法（纯写入，不追问） | `/thought agent时代最大的杠杆是taste` |
 
-替代 Notion Thoughts → raw → compile → /complete 的长链路。写入即 interview，一步到位。
+写完后可用 `/interview thought` 追问展开。
 
 ### Wiki Digest
 
@@ -126,23 +131,31 @@ Skill: `.claude/skills/digest/` → symlink at `~/.claude/skills/digest`
 
 | Command | Purpose | Example |
 |---------|---------|---------|
-| `/digest` | 今日 wiki 变化回顾 + 推荐问题 | `/digest` |
-| `/digest week` | 本周回顾 + 活跃概念 + 推荐问题 | `/digest week` |
-| `/digest question` | 只给推荐问题 | `/digest question` |
+| `/digest` | 今日 wiki 变化回顾 + 完成任务 | `/digest` |
+| `/digest week` | 本周回顾 + 活跃概念 | `/digest week` |
 
-### selfOS Completion (逆向 DPO — context recovery)
+纯统计回顾，不推荐问题（追问用 `/interview`）。
 
-Skill: `.claude/skills/selfos-completion/` → symlink at `~/.claude/skills/selfos-completion`
+### Interview（统一追问）
+
+Skill: `.claude/skills/interview/` → symlink at `~/.claude/skills/interview`
 
 | Command | Purpose |
 |---------|---------|
-| `/bookmark-chat` | 混合模式——随机抽一条推特书签或一句话 Thought，对话还原 context |
-| `/complete` | 只从缺乏 context 的 Notion Thoughts 中抽取 |
-| `/interview` | wiki 主动对话：pending 偏好追问 → open questions → thin pages → timeline gaps |
-| `/bookmark-chat status` | 查看进度（书签/Thoughts 分列） |
+| `/interview` | wiki 主动追问：pending 偏好 → open questions → thin pages → timeline gaps |
+| `/interview thought` | 追问刚记录的 `/thought` |
+| `/bookmark-chat` | 随机抽推特书签，对话还原 context |
+| `/complete` | 抽缺 context 的 Notion Thoughts |
 
 状态文件：`docs/bookmark-chat-log.jsonl`，产出：`wiki/synthesis/bookmark-chat-YYYY-MM-DD.md`
-Thoughts 模式额外回写到原 source page（追加 `## Context Recovery` 段落）
+
+### Wiki Help（速查）
+
+Skill: `.claude/skills/wiki-help/` → symlink at `~/.claude/skills/wiki-help`
+
+| Command | Purpose |
+|---------|---------|
+| `/wiki-help` | 输出所有 selfOS 命令速查表 |
 
 ### Auto-Capture + Preference Tagging (被动层)
 
@@ -174,7 +187,22 @@ Thoughts 模式额外回写到原 source page（追加 `## Context Recovery` 段
 
 ## Distribution
 
-Fork 用户流程：`git clone` → `./setup.sh` → `/wiki init`
+### Branch Architecture
+
+| 分支 | 用途 | 包含数据 |
+|------|------|---------|
+| `template` | 公开发布的骨架——skill, scripts, docs, wiki 结构模板 | 否 |
+| `private` | 个人完整知识库（template + wiki 内容） | 是 |
+
+- 功能开发（新 skill、改 script）→ 在 `template` 分支，cherry-pick 到 `private`
+- 日常数据操作（ingest、todo）→ 直接在 `private`
+- 发布 → push `template` 分支
+- **不要 merge**（orphan 分支无共同祖先）
+- 详见 `docs/knowhow/runbooks/template-data-separation.md`
+
+### Fork 用户流程
+
+`git clone` → `./setup.sh` → `/wiki init`
 
 | 文件 | 用途 |
 |------|------|
@@ -187,7 +215,7 @@ Fork 用户流程：`git clone` → `./setup.sh` → `/wiki init`
 - `docs/specs/twitter-bookmarks-ingest.md` — 推特书签 → wiki 导入流程
 - `docs/specs/2026-04-07-knowledge-graph-scaling.md` — 知识图谱扩展方案
 - `docs/specs/2026-04-07-context-capture-modes.md` — Chat Mode + Interview Mode
-- `docs/superpowers/specs/2026-04-09-selfos-skill-suite-design.md` — selfOS skill 集设计（三层架构 + 分发）
+- `docs/superpowers/specs/2026-04-09-selfos-skill-suite-design.md` — selfOS skill 集设计（三层架构 + 分发）⚠️ 已过时：skill 已从 11→7 重构，见 `docs/knowhow/runbooks/selfos-skill-refactor.md`
 - `docs/superpowers/specs/2026-04-28-todo-system-design.md` — 双轨 todo 堆栈设计（do/read + 日计划仪式 + 月度归档）
 - `docs/superpowers/plans/2026-04-28-todo-system.md` — todo 系统实现计划（7 tasks）
 
@@ -200,5 +228,6 @@ Fork 用户流程：`git clone` → `./setup.sh` → `/wiki init`
 - `docs/knowhow/toolchain/` — qmd, chat export, fieldtheory, Obsidian 插件调研等工具指南
 - `docs/knowhow/toolchain/obsidian-cli-integration.md` — Obsidian CLI/API 集成方案调研
 - `docs/knowhow/toolchain/cc-skill-distribution.md` — CC Skill 分发架构：源/symlink 分离、CSO 规则、hook 模式
+- `docs/knowhow/runbooks/selfos-skill-refactor.md` — Skill 体系审计、清理、重命名、职责正交化 runbook
 - `docs/knowhow/debug-solutions/` — Obsidian 配置等问题解决
 - `docs/knowhow/runbooks/` — LLM Wiki 搭建等操作手册
