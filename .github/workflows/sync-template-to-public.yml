@@ -1,0 +1,19 @@
+name: Sync template → public
+
+on:
+  push:
+    branches: [template]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: template
+          fetch-depth: 0
+
+      - name: Push to public repo
+        run: |
+          git remote add public https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/freemty/selfOS.git
+          git push public template:main --force
