@@ -10,7 +10,7 @@ LLM presents a key, human restores the value. Covers all context-recovery and ga
 
 ## Wiki Root
 
-**Always resolve to `~/selfOS/` (absolute: `/Users/<username>/selfOS/`).** All paths below are relative to this root.
+**Always resolve to `~/selfOS/` (absolute: `/Users/sum_young/selfOS/`).** All paths below are relative to this root.
 
 ## When to Use
 

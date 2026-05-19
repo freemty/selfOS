@@ -24,7 +24,7 @@ selfOS skill 是 instruction-driven 的 markdown 文件（不是可执行代码�
 
 ### Phase 2: Plan（/writing-plans）
 
-1. 读 spec + 现有 skill 模式（thought/digest/selfos 作为参考）
+1. 读 spec + 现有 skill 模式（thought/digest/wiki 作为参考）
 2. 输出 file map + task 分解
 3. 每个 task 包含：文件路径、完整内容、验证命令、commit 消息
 4. 写 plan → `docs/superpowers/plans/YYYY-MM-DD-<name>.md`

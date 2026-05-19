@@ -4,7 +4,7 @@ Pull new/updated notes from Notion LifeOS → compile into wiki.
 
 ## Context
 
-- Wiki root: `~/selfOS/` (absolute: `/Users/<username>/selfOS/`)
+- Wiki root: `~/selfOS/` (absolute: `/Users/sum_young/selfOS/`)
 - Sync state file: `docs/sync-state.json` (contains `database_id`, `last_sync`, `synced_notion_ids`)
 
 ## Steps

@@ -157,6 +157,28 @@ Skill: `.claude/skills/wiki-help/` → symlink at `~/.claude/skills/wiki-help`
 |---------|---------|
 | `/wiki-help` | 输出所有 selfOS 命令速查表 |
 
+### Academic Writing（论文英文）
+
+Skill: `.claude/skills/academic-writing/` → symlink at `~/.claude/skills/academic-writing`
+
+Auto-triggers on paper writing, grant proposals, research emails. 21 rules from agent-style (Strunk & White / Orwell / Pinker) + 9 LLM anti-patterns. No slash command needed — context-activated.
+
+### Paper Plot（论文图表）
+
+Skill: `.claude/skills/paper-plot/` → symlink at `~/.claude/skills/paper-plot`
+
+Drop-in matplotlib templates with shared `style.py` (Palatino + STIX Math + 5-tier color palette). Copy template to `figures/`, edit data block, run.
+
+### Transcribe（录音转写）
+
+Skill: `.claude/skills/transcribe/` → symlink at `~/.claude/skills/transcribe`
+
+| Command | Purpose | Example |
+|---------|---------|---------|
+| `/transcribe <path>` | 录音转文字 + 可选归档 wiki | `/transcribe meeting.mp3` |
+
+火山引擎 ASR 极速版（< 2h / 100MB），支持 mp3/wav/m4a/aac，自动说话人分离。需要 `VOLCENGINE_ASR_API_KEY` 环境变量。
+
 ### Auto-Capture + Preference Tagging (被动层)
 
 每次 Claude Code 对话结束时，Stop hook 自动：
@@ -194,10 +216,11 @@ Skill: `.claude/skills/wiki-help/` → symlink at `~/.claude/skills/wiki-help`
 | `template` | 公开发布的骨架——skill, scripts, docs, wiki 结构模板 | 否 |
 | `private` | 个人完整知识库（template + wiki 内容） | 是 |
 
-- 功能开发（新 skill、改 script）→ 在 `template` 分支，cherry-pick 到 `private`
 - 日常数据操作（ingest、todo）→ 直接在 `private`
-- 发布 → push `template` 分支
-- **不要 merge**（orphan 分支无共同祖先）
+- 功能开发（新 skill、改 script）→ 也在 `private`，积累后批量同步到 `template`
+- 同步方法：`git checkout template` → `git checkout private -- .claude/skills/ setup.sh hooks/ scripts/ CLAUDE.md` → 脱敏 → commit
+- **不要 merge**（orphan 分支无共同祖先，只能 checkout + 覆盖 + 脱敏）
+- 同步频率：每 1-2 周或每次大的 skill 重构后
 - 详见 `docs/knowhow/runbooks/template-data-separation.md`
 
 ### Fork 用户流程
@@ -228,6 +251,9 @@ Skill: `.claude/skills/wiki-help/` → symlink at `~/.claude/skills/wiki-help`
 - `docs/knowhow/toolchain/` — qmd, chat export, fieldtheory, Obsidian 插件调研等工具指南
 - `docs/knowhow/toolchain/obsidian-cli-integration.md` — Obsidian CLI/API 集成方案调研
 - `docs/knowhow/toolchain/cc-skill-distribution.md` — CC Skill 分发架构：源/symlink 分离、CSO 规则、hook 模式
+- `docs/knowhow/toolchain/volcengine-asr.md` — 火山引擎 ASR 录音转写：API 认证、产品选择、脚本用法
 - `docs/knowhow/runbooks/selfos-skill-refactor.md` — Skill 体系审计、清理、重命名、职责正交化 runbook
+- `docs/knowhow/runbooks/template-data-separation.md` — Template/Private 分支分离管理 + 反向同步 workflow + 脱敏 checklist
+- `docs/knowhow/runbooks/audio-transcribe-to-wiki.md` — 录音转写→wiki 归档完整 runbook（/transcribe skill 流程）
 - `docs/knowhow/debug-solutions/` — Obsidian 配置等问题解决
 - `docs/knowhow/runbooks/` — LLM Wiki 搭建等操作手册

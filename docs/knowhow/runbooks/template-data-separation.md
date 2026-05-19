@@ -133,9 +133,71 @@ for f in $(git ls-tree -r template --name-only | grep -E '\.(md|sh|py)$'); do
 done
 ```
 
+### 反向同步：private → template 批量更新
+
+当 private 分支积累了大量 skill/script/doc 变更后，需要批量同步到 template。
+不要用 cherry-pick（orphan 分支无共同祖先），用 checkout + 脱敏 + commit。
+
+```bash
+# 1. 保护当前工作
+git stash push -m "pre-template-sync"
+
+# 2. 切到 template
+git checkout template
+
+# 3. 从 private 拉取最新基础设施文件（覆盖 template 旧版本）
+rm -rf .claude/skills/
+git checkout private -- \
+  .claude/skills/ \
+  setup.sh \
+  hooks/ \
+  scripts/ \
+  CLAUDE.md \
+  docs/knowhow/runbooks/
+
+# 4. 脱敏：替换绝对路径
+find .claude/skills/ -name "*.md" -exec \
+  sed -i '' 's|/Users/<你的用户名>/selfOS/|/Users/<username>/selfOS/|g' {} +
+sed -i '' 's|/Users/<你的用户名>/selfOS/|/Users/<username>/selfOS/|g' \
+  setup.sh CLAUDE.md
+
+# 5. 脱敏：个人示例泛化（按需）
+# grep -rn "你的真名\|导师名\|学校名" --include="*.md" .claude/skills/
+
+# 6. 排除不该进 template 的文件
+git rm --cached .playwright-mcp/* 2>/dev/null
+echo ".playwright-mcp/" >> .gitignore
+
+# 7. 提交
+git add -A
+git commit -m "feat: sync template vX.Y.Z — <变更摘要>"
+
+# 8. 回到 private + 恢复
+git checkout -f private
+git stash pop
+```
+
+**频率建议**：每 1-2 周或每次大的 skill 重构后同步一次。
+
+**脱敏 checklist**（每次同步必须跑）：
+
+```bash
+grep -rn "你的真名\|你的邮箱\|/Users/你的用户名/" \
+  --include="*.md" --include="*.sh" --include="*.py" \
+  .claude/skills/ setup.sh hooks/ scripts/ CLAUDE.md
+```
+
+## Sync History
+
+| Date | Version | Changes |
+|------|---------|---------|
+| 2026-04-29 | v0.5.0 | 初始 template 分支创建，85 files |
+| 2026-05-04 | v1.0.0 | Skill 重构同步（selfos→wiki, +wiki-help/interview/synthesize），CLAUDE.md 全面更新，删除 6 个 dead skills |
+
 ## Notes
 
-- Date: 2026-04-29
-- Case study: selfOS private(1219 files) → template(85 files) 分离
-- 预期差异文件（by design）：.gitignore, wiki/index.md, wiki/log.md, wiki/overview.md
-- orphan branch 意味着 `git merge` 不可用，只能 cherry-pick 单向同步
+- Date: 2026-04-29 (created), 2026-05-04 (updated)
+- Case study: selfOS private(1300+ files) → template(~90 files) 分离
+- 预期差异文件（by design）：.gitignore, wiki/index.md, wiki/log.md, wiki/overview.md, skill 内的绝对路径
+- orphan branch 意味着 `git merge` 不可用，只能 checkout + 脱敏 + commit
+- template 分支的 skill 文件路径用 `/Users/<username>/selfOS/` 占位，setup.sh 会在用户机器上自动替换
