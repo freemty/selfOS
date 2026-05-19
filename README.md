@@ -2,7 +2,7 @@
 
 A personal knowledge base that runs inside [Claude Code](https://claude.ai/claude-code). You talk to it with slash commands. It compiles your notes, conversations, and bookmarks into interlinked markdown — source pages, concept pages, entity pages — so you never re-derive the same insight twice.
 
-I've been using it daily for 11 months. ~900 sources, ~80 concepts, ~90 entities.
+I've been using it daily for 12 months. ~920 sources, ~88 concepts, ~108 entities.
 
 ## Get Started
 
@@ -19,7 +19,7 @@ cd selfOS
 ./setup.sh
 ```
 
-`setup.sh` registers the skill symlinks so Claude Code can find them. That's it — no Python environment, no database, no API keys.
+`setup.sh` registers the skill symlinks so Claude Code can find them. That's it — no database, no mandatory API keys. (`/transcribe` optionally uses Volcengine ASR — see `docs/knowhow/toolchain/volcengine-asr.md`.)
 
 Now open Claude Code in the `selfOS` directory:
 
@@ -80,6 +80,7 @@ Shows today's wiki changes: new pages, updates, and a recommended question to th
 | `/thought <text>` | Capture a fleeting idea. Pure write, no questions. |
 | `/interview` | Wiki asks you questions based on its gaps. |
 | `/digest` | Today's changes + stats. `/digest week` for weekly. |
+| `/transcribe <audio-file>` | Transcribe audio (meeting/voice memo) → wiki source page. |
 
 ### Wiki — knowledge management
 
@@ -101,6 +102,14 @@ Shows today's wiki changes: new pages, updates, and a recommended question to th
 | `/todo today` | Pick today's items from the pool. |
 | `/todo done <id>` | Mark done, archive. |
 | `/todo list` | Show current today + pool. |
+
+### Writing — style-aware output
+
+| Command | What it does |
+|---------|-------------|
+| `/de-ai` | Strip AI-sounding language from any text. |
+| `/academic-writing` | Auto-applies 21 prose rules on paper drafts. (context-triggered, no slash needed) |
+| `/paper-plot` | Drop-in matplotlib templates for publication figures. |
 
 ### Help
 
@@ -136,7 +145,7 @@ A stop hook (`hooks/auto-capture.sh`) can silently extract personal context from
 
 ```
 selfOS/
-├── .claude/skills/     7 skills (wiki, thought, interview, digest, todo, wiki-help, + internal)
+├── .claude/skills/     11 skills (wiki, thought, interview, digest, todo, transcribe, de-ai, academic-writing, paper-plot, wiki-help, + internal)
 ├── hooks/              auto-capture stop hook
 ├── scripts/            utility scripts
 ├── raw/                your immutable source documents
