@@ -40,7 +40,7 @@ open "obsidian://search?vault=selfOS&query=attention"
 **快捷格式：**
 ```bash
 open "obsidian://vault/selfOS/wiki/index"
-open "obsidian:///Users/sum_young/selfOS/wiki/index"
+open "obsidian://~/selfOS/wiki/index"
 ```
 
 **支持 `x-callback-url`：** `new` 和 `hook-get-address` 支持 `x-success` 回调。

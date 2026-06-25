@@ -39,9 +39,13 @@ private — 完整个人数据，不 push（本地 branch 或 .gitignore）
 # 用 orphan branch 创建干净的 main
 git checkout --orphan clean-main
 # 选择性添加文件（不要 git add -A）
-git add viewer/ scripts/ tests/ README.md LICENSE requirements.txt .claude/skills/ CLAUDE.md .gitignore
+git add viewer/ scripts/ tests/ README.md LICENSE requirements.txt .claude/skills/ .agents/skills/ CLAUDE.md AGENTS.md .gitignore
 git add wiki/templates/ wiki/index.md wiki/log.md wiki/overview.md
-git add docs/launch/ docs/specs/ docs/knowhow/
+git add docs/specs/ docs/knowhow/
+git add setup.sh hooks/
+git add wiki/tasks/
+git add scripts/check_agent_parity.sh scripts/recount-index.py
+bash scripts/check_agent_parity.sh
 git commit -m "feat: clean scaffold-only main branch"
 git branch -D main && git branch -m main
 git push origin main --force
@@ -50,7 +54,7 @@ git push origin main --force
 ### Demo Branch 脱敏
 1. 从 main 创建 demo branch
 2. 添加脱敏数据子集
-3. 替换私人姓名为首字母（"Jiahao" → "J."）
+3. 替换私人姓名为首字母（"Alice Chen" → "A.C."）
 4. 删除情绪日记、私人关系记录
 5. 保留公开人物和技术内容
 6. 用 orphan branch 确保历史干净
@@ -75,6 +79,7 @@ gh api "repos/OWNER/REPO/git/trees/main?recursive=1" \
 # 完整一键验证
 grep -rn "AKIA\|sk-proj\|aws_secret" . --include="*.md" --include="*.json" --exclude-dir=.git && echo "SECRETS FOUND!" || echo "clean"
 grep -rn "/Users/" . --include="*.md" --include="*.py" --exclude-dir=.git && echo "LOCAL PATHS FOUND!" || echo "clean"
+bash scripts/check_agent_parity.sh
 ```
 
 ## Notes

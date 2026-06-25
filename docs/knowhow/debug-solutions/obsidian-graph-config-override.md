@@ -4,7 +4,7 @@
 
 ## Problem
 
-通过 Claude Code 或编辑器修改 `~/knowledge-base/.obsidian/graph.json`（Graph View 的着色/过滤/布局配置），保存后 Obsidian 立即用内存中的状态覆盖回去。配置永远不会生效。
+通过 Claude Code 或编辑器修改 `~/selfOS/.obsidian/graph.json`（Graph View 的着色/过滤/布局配置），保存后 Obsidian 立即用内存中的状态覆盖回去。配置永远不会生效。
 
 ## Cause
 

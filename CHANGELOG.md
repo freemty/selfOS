@@ -1,5 +1,28 @@
 # Changelog
 
+## v1.2.0 @freemty - 2026-06-25
+
+### 新增
+- **Codex support** — 新增 `AGENTS.md` 和 `.agents/skills/`，与 Claude Code 的 `CLAUDE.md` + `.claude/skills/` 对齐
+- **Dual-target setup** — `./setup.sh --target claude|codex|all --hook|--no-hook`
+- **`scripts/recount-index.py`** — 自动回填 `wiki/index.md` 中的 section 计数，避免手工计数漂移
+- **Agent parity guard** — `scripts/check_agent_parity.sh` 检查 Claude/Codex skill surface、旧版 Codex 路径、本机绝对路径和已知漂移字符串
+- **Todo section skeleton** — template 的 `wiki/tasks/do.md` 支持 `Today / Pending / Pool`，`read.md` 支持 `Today / Completed / Abandoned / Pool`
+
+### 变更
+- `/todo list` 显示 task 文件中存在的所有任务区，不再假设只有 Today/Pool
+- Auto-Capture 默认解析当前 repo 作为 wiki root，不再写死旧固定路径
+- README / CLAUDE.md / AGENTS.md 更新为双 agent 安装与分发说明
+- 旧 selfOS 内置 `/clone` skill 移除；网页克隆改为可选外部 `clone-web` skill
+
+### 验证
+- `HOME=$(mktemp -d) ./setup.sh --target claude --no-hook`
+- `HOME=$(mktemp -d) ./setup.sh --target codex --no-hook`
+- `bash scripts/check_agent_parity.sh`
+- `python3 scripts/recount-index.py`
+
+---
+
 ## v1.1.0 @freemty - 2026-05-19
 
 ### 新增
@@ -35,11 +58,11 @@
 - **小红书 MCP** — Docker + mcp-remote stdio 桥接 + cookie 注入，首次打通
 - **2 个 unbox** — Xiaolong Wang + Sifei Liu 研究者画像（双非起点 cluster 发现）
 - **Synthesis** — 双非起点×Embodied AI 结构性匹配（5 人 cluster 分析）
-- **Eric Xing entity** — CMU 教授，张昊 advisor，三代精神 DNA 传承
+- **Academic advisor entity** — 研究谱系与导师关系归档
 - **语言风格社会经济框架** — 三变量（经济模式×流动性×权力距离）+ L1/L2/L3 表达道德层级
 - **配色审美理论** — 对比度+pop-out+对称性+约束优雅，红色作为 identity 投射
 - **Neuroscience First Principles** — 视觉层级→World Model 生物学根基，D.F. 案例证明 VLM/VLA 应分离
-- **张昊涌现 Lab 万字访谈归档** — 五条价值观共振 + 招生标准 + L3 personality role model
+- **Lab interview archive** — 价值观、招生标准与 role-model 信号归档
 
 ### 变更
 - Skill 目录从 11 个精简为 5 个（wiki/interview/thought/digest/todo）
@@ -116,7 +139,7 @@
   - 比较 concept `updated` vs 最新 source `updated`，阈值 7 天
   - 输出包含 `concept_path` 和 `latest_source` 方便下游处理
 - **Intelligence Density 数据竞赛论** (LI Yikang blog ingest)：new concept + entity
-- 张昊 entity 扩展：career timeline + CSE 234 课程结构
+- Researcher entity 扩展：career timeline + 课程结构
 - 统一数据导入指南 `docs/guides/import-data.md`
 
 ### 变更

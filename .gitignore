@@ -33,6 +33,7 @@ raw/claude-conversations/
 raw/gemini-conversations/
 raw/twitter-bookmarks/
 .gstack/
+raw/audio/
 
 # Data layer — excluded from template branch
 # These directories contain personal wiki content.
@@ -47,4 +48,13 @@ raw/
 docs/batch-*.json
 docs/deep-batch-*.json
 docs/*.jsonl
+
+# Browser/agent debug artifacts. Keep Codex skill source tracked.
 .playwright-mcp/
+.agents/*
+!.agents/skills/
+!.agents/skills/**
+.claude/agent-memory/
+
+# Obsidian local UI state (keep shared app/graph config tracked)
+.obsidian/workspace.json

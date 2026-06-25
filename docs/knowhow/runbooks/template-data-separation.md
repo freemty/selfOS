@@ -12,7 +12,7 @@ selfOS 有三个层次的文件：
 
 | 层 | 内容 | 变动频率 |
 |---|------|---------|
-| Template | `.claude/skills/`, `scripts/`, `hooks/`, `CLAUDE.md`, `setup.sh` | 低 |
+| Template | `.claude/skills/`, `.agents/skills/`, `scripts/`, `hooks/`, `CLAUDE.md`, `AGENTS.md`, `setup.sh` | 低 |
 | Schema | `wiki/templates/`, `wiki/index.md` 结构 | 极低 |
 | Data | `wiki/sources/`, `wiki/concepts/`, `wiki/entities/`, `raw/` | 高 |
 
@@ -33,9 +33,11 @@ git rm -rf .
 # 4. 从 private 分支 checkout 白名单文件
 git checkout private -- \
   .claude/skills/ \
+  .agents/skills/ \
   scripts/ \
   hooks/ \
   CLAUDE.md \
+  AGENTS.md \
   .gitignore \
   setup.sh \
   README.md \
@@ -102,7 +104,7 @@ grep -rn "你的真名\|你的邮箱\|/Users/你的用户名/" --include="*.md" 
 template 分支（功能开发）      private 分支（日常数据）
          │                              │
          │  新 skill / 改 script        │  /wiki ingest
-         │  改 CLAUDE.md               │  /todo add
+         │  改 CLAUDE.md / AGENTS.md   │  /todo add
          │                              │
          └──── cherry-pick ────────────→│
                                         │
@@ -146,33 +148,40 @@ git stash push -m "pre-template-sync"
 git checkout template
 
 # 3. 从 private 拉取最新基础设施文件（覆盖 template 旧版本）
-rm -rf .claude/skills/
+rm -rf .claude/skills/ .agents/skills/
 git checkout private -- \
   .claude/skills/ \
+  .agents/skills/ \
   setup.sh \
   hooks/ \
   scripts/ \
   CLAUDE.md \
+  AGENTS.md \
   docs/knowhow/runbooks/
 
 # 4. 脱敏：替换绝对路径
-find .claude/skills/ -name "*.md" -exec \
-  sed -i '' 's|/Users/<你的用户名>/selfOS/|/Users/<username>/selfOS/|g' {} +
+find .claude/skills/ .agents/skills/ -name "*.md" -exec \
+  sed -i '' 's|/Users/<你的用户名>/selfOS/|~/selfOS/|g' {} +
 sed -i '' 's|/Users/<你的用户名>/selfOS/|/Users/<username>/selfOS/|g' \
-  setup.sh CLAUDE.md
+  setup.sh CLAUDE.md AGENTS.md
 
 # 5. 脱敏：个人示例泛化（按需）
-# grep -rn "你的真名\|导师名\|学校名" --include="*.md" .claude/skills/
+# grep -rn "你的真名\|导师名\|学校名" --include="*.md" .claude/skills/ .agents/skills/
 
 # 6. 排除不该进 template 的文件
 git rm --cached .playwright-mcp/* 2>/dev/null
 echo ".playwright-mcp/" >> .gitignore
 
-# 7. 提交
+# 7. 验证
+bash scripts/check_agent_parity.sh
+HOME=$(mktemp -d) ./setup.sh --target claude --no-hook
+HOME=$(mktemp -d) ./setup.sh --target codex --no-hook
+
+# 8. 提交
 git add -A
 git commit -m "feat: sync template vX.Y.Z — <变更摘要>"
 
-# 8. 回到 private + 恢复
+# 9. 回到 private + 恢复
 git checkout -f private
 git stash pop
 ```
@@ -184,7 +193,8 @@ git stash pop
 ```bash
 grep -rn "你的真名\|你的邮箱\|/Users/你的用户名/" \
   --include="*.md" --include="*.sh" --include="*.py" \
-  .claude/skills/ setup.sh hooks/ scripts/ CLAUDE.md
+  .claude/skills/ .agents/skills/ setup.sh hooks/ scripts/ CLAUDE.md AGENTS.md
+bash scripts/check_agent_parity.sh
 ```
 
 ## Sync History
@@ -193,11 +203,12 @@ grep -rn "你的真名\|你的邮箱\|/Users/你的用户名/" \
 |------|---------|---------|
 | 2026-04-29 | v0.5.0 | 初始 template 分支创建，85 files |
 | 2026-05-04 | v1.0.0 | Skill 重构同步（selfos→wiki, +wiki-help/interview/synthesize），CLAUDE.md 全面更新，删除 6 个 dead skills |
+| 2026-06-25 | v1.2.0 | Codex `.agents/skills` surface + dual-target setup + parity guard + recount-index |
 
 ## Notes
 
 - Date: 2026-04-29 (created), 2026-05-04 (updated)
 - Case study: selfOS private(1300+ files) → template(~90 files) 分离
-- 预期差异文件（by design）：.gitignore, wiki/index.md, wiki/log.md, wiki/overview.md, skill 内的绝对路径
+- 预期差异文件（by design）：.gitignore, wiki/index.md, wiki/log.md, wiki/overview.md
 - orphan branch 意味着 `git merge` 不可用，只能 checkout + 脱敏 + commit
-- template 分支的 skill 文件路径用 `/Users/<username>/selfOS/` 占位，setup.sh 会在用户机器上自动替换
+- Claude/Codex parity 的最低门槛是 `bash scripts/check_agent_parity.sh` 通过

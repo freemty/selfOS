@@ -25,7 +25,7 @@
 
 ## 提取脚本
 
-统一提取脚本: `~/knowledge-base/scripts/extract-all-sources.py`
+统一提取脚本: `~/selfOS/scripts/extract-all-sources.py`
 
 处理原则:
 - **保留完整对话**（用户 + AI），不裁剪
@@ -34,7 +34,7 @@
 - Source page 保存到 `wiki/sources/` (前缀: `cc-` / `gem-` / `notion-`)
 
 ```bash
-cd ~/knowledge-base
+cd ~/selfOS
 python3 scripts/extract-all-sources.py
 # 自动处理三个数据源，输出到 wiki/sources/
 ```
@@ -42,7 +42,7 @@ python3 scripts/extract-all-sources.py
 ## 归档位置
 
 ```
-~/knowledge-base/raw/
+~/selfOS/raw/
 ├── claude-conversations/2026-04-05-export/  # Claude 原始导出
 ├── gemini-conversations/                     # Gemini .md + .json
 └── notion-notes/                             # Notion 导出

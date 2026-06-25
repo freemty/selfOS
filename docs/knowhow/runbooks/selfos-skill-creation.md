@@ -4,7 +4,7 @@
 
 ## Problem
 
-需要给 selfOS 加新功能时，如何系统性地设计、实现、验证一个 Claude Code skill，确保与现有 wiki 体系一致。
+需要给 selfOS 加新功能时，如何系统性地设计、实现、验证 Claude Code + Codex 两套 skill surface，确保与现有 wiki 体系一致。
 
 ## Cause
 
@@ -33,8 +33,8 @@ selfOS skill 是 instruction-driven 的 markdown 文件（不是可执行代码�
 ### Phase 3: Implement（/subagent-driven-development）
 
 1. 数据文件先行（wiki/tasks/ 等）——最简单，建立基础
-2. 核心 skill 文件（.claude/skills/<name>/skill.md）——主交付
-3. 集成修改并行派发（index.md, digest, CLAUDE.md）——三个独立文件
+2. 核心 skill 文件（`.claude/skills/<name>/skill.md` + `.agents/skills/<name>/SKILL.md`）——主交付
+3. 集成修改并行派发（index.md, digest, CLAUDE.md, AGENTS.md）——独立文件
 4. 每个 task 后快速验证（文件内容 + git log）
 5. Symlink 创建（如需全局可用）
 
@@ -43,7 +43,7 @@ selfOS skill 是 instruction-driven 的 markdown 文件（不是可执行代码�
 1. **Code review**（superpowers:code-reviewer）——检查 spec 对齐、edge case、集成正确性
 2. **Codex challenge**（/codex challenge）——对抗性审查，找故障模式
 3. 修复 review findings → 额外 commit
-4. CLAUDE.md 索引 spec + plan
+4. CLAUDE.md / AGENTS.md 索引 spec + plan
 
 ### 关键模式
 
@@ -72,6 +72,8 @@ user-invocable: true
 **集成点 checklist：**
 - [ ] wiki/index.md — 新增分区
 - [ ] CLAUDE.md — 命令速查表 + 心智模型行
+- [ ] AGENTS.md — Codex 命令速查表 + 心智模型行
+- [ ] scripts/check_agent_parity.sh — 新 skill 纳入 parity check
 - [ ] digest — 如果新数据源应出现在回顾中
 - [ ] 全局 symlink — 如果需要在 selfOS 目录外使用
 
@@ -90,9 +92,13 @@ user-invocable: true
 # 验证 symlink
 ls -la ~/.claude/skills/<name>
 readlink ~/.claude/skills/<name>
+ls -la ~/.agents/skills/<name>
+readlink ~/.agents/skills/<name>
 
 # 检查 spec/plan 索引
 grep "<name>" CLAUDE.md
+grep "<name>" AGENTS.md
+bash scripts/check_agent_parity.sh
 ```
 
 ## Notes

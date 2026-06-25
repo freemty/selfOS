@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Auto-ingest personal context from Claude Code sessions into the LLM Wiki.
+Auto-ingest personal context from agent sessions into the LLM Wiki.
 
 Reads conversation text from stdin (Stop hook JSON with transcript_path,
 or raw text). Checks for personal context signals, saves as a wiki source
@@ -15,7 +15,16 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-WIKI_ROOT = Path.home() / "knowledge-base"
+
+def resolve_wiki_root():
+    """Resolve the wiki root for hook execution."""
+    override = os.environ.get("SELFOS_WIKI_ROOT")
+    if override:
+        return Path(override).expanduser().resolve()
+    return Path(__file__).resolve().parents[1]
+
+
+WIKI_ROOT = resolve_wiki_root()
 SOURCES_DIR = WIKI_ROOT / "wiki" / "sources"
 LOG_PATH = WIKI_ROOT / "wiki" / "log.md"
 MAX_CHARS = 10000
@@ -250,9 +259,9 @@ def build_frontmatter(title, date_str, pending_questions=None):
         f'created: {date_str}',
         f'updated: {date_str}',
         'sources: []',
-        'tags: [auto-captured, cc-session]',
-        'summary: "Auto-captured from Claude Code session"',
-        'source_type: "cc-session"',
+        'tags: [auto-captured, agent-session]',
+        'summary: "Auto-captured from an agent session"',
+        'source_type: "agent-session"',
         'confidence: low',
     ]
     if pending_questions:
@@ -269,6 +278,7 @@ def save_source(text, date_str, slug):
     time_str = datetime.now().strftime("%H%M")
     filename = f"auto-{date_str}-{time_str}-{slug}.md"
     filepath = SOURCES_DIR / filename
+    SOURCES_DIR.mkdir(parents=True, exist_ok=True)
 
     # Idempotency: skip if file already exists
     if filepath.exists():
@@ -302,12 +312,13 @@ def save_source(text, date_str, slug):
 def append_log(date_str, slug, filepath):
     """Append entry to wiki/log.md."""
     entry = (
-        f"\n## [{date_str}] auto-ingest | cc-session\n"
-        f"- **Source**: Claude Code session (auto-captured)\n"
+        f"\n## [{date_str}] auto-ingest | agent-session\n"
+        f"- **Source**: Agent session (auto-captured)\n"
         f"- **File**: `{filepath.relative_to(WIKI_ROOT)}`\n"
     )
 
     try:
+        LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
         with open(LOG_PATH, "a", encoding="utf-8") as f:
             f.write(entry)
     except (OSError, IOError):
@@ -328,7 +339,7 @@ def git_commit(filepath):
                 "git",
                 "commit",
                 "-m",
-                f"auto: ingest cc-session {filepath.name}",
+                f"auto: ingest agent-session {filepath.name}",
             ],
             cwd=str(WIKI_ROOT),
             capture_output=True,

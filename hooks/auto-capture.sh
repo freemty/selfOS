@@ -1,6 +1,6 @@
 #!/bin/bash
 # Wiki Auto-Capture Hook (Stop)
-# Pipes Claude Code session transcript to auto-ingest.py for wiki capture.
+# Pipes an agent session transcript to auto-ingest.py for wiki capture.
 # Runs in background to avoid blocking Claude Code exit.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"

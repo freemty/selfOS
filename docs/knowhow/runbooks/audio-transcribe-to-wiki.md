@@ -65,5 +65,5 @@ cp /tmp/t.md ~/selfOS/raw/meeting-2026-05-18-hao-1on1-transcript.md
 ## Notes
 - Date: 2026-05-18
 - 首次使用需设置 `VOLCENGINE_ASR_API_KEY`（见 toolchain/volcengine-asr.md）
-- WeChat 录音文件常见路径: `~/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/*/temp/drag/`
+- Chat app 录音文件通常在对应应用的 container/cache/temp 目录；复制到 `raw/audio/` 后再处理
 - 说话人分离质量取决于音频质量（多人同时说话时准确度下降）

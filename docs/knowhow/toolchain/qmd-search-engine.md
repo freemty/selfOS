@@ -13,7 +13,7 @@ qmd --version  # 确认安装
 ## 创建 Collection
 
 ```bash
-qmd collection add ~/knowledge-base/wiki --name wiki
+qmd collection add ~/selfOS/wiki --name wiki
 qmd context add qmd://wiki "描述你的知识库内容"
 qmd embed  # 生成向量（首次较慢，后续增量）
 ```

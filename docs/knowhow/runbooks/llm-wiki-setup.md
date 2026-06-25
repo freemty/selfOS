@@ -20,8 +20,8 @@ mkdir -p ~/.claude/skills/llm-wiki/{references,scripts}
 ## Step 2: 初始化知识库
 
 ```bash
-mkdir -p ~/knowledge-base/{raw/assets,wiki/{concepts,entities,sources,synthesis}}
-cd ~/knowledge-base
+mkdir -p ~/selfOS/{raw/assets,wiki/{concepts,entities,sources,synthesis}}
+cd ~/selfOS
 # 写 CLAUDE.md (wiki schema)
 # 写 wiki/index.md, wiki/log.md, wiki/overview.md
 git init && git add -A && git commit -m "feat(wiki): initialize"
@@ -50,7 +50,7 @@ git init && git add -A && git commit -m "feat(wiki): initialize"
 ## Step 4: 提取 Source Pages
 
 ```bash
-cd ~/knowledge-base
+cd ~/selfOS
 python3 scripts/extract-all-sources.py
 # 生成 wiki/sources/ (notion- / cc- / gem- 前缀)
 ```
@@ -70,7 +70,7 @@ python3 scripts/extract-all-sources.py
 
 ```bash
 npm install -g @tobilu/qmd
-qmd collection add ~/knowledge-base/wiki --name wiki
+qmd collection add ~/selfOS/wiki --name wiki
 qmd context add qmd://wiki "知识库描述"
 qmd embed
 ```
@@ -79,7 +79,7 @@ qmd embed
 
 ```bash
 brew install --cask obsidian
-# 打开 Obsidian → Open folder as vault → ~/knowledge-base/
+# 打开 Obsidian → Open folder as vault → ~/selfOS/
 # 装插件: Dataview, Marp Slides, Obsidian Git
 # Graph View: filter `-path:wiki/sources -path:raw`, 加颜色分组
 ```
@@ -103,6 +103,6 @@ brew install --cask obsidian
 
 ## Notes
 - Date: 2026-04-07
-- 完整实现历史: ~/knowledge-base/ git log
+- 完整实现历史: ~/selfOS/ git log
 - Skill 位置: ~/.claude/skills/llm-wiki/
 - 参考: Karpathy gist, farzaa wiki-gen-skill

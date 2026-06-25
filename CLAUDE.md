@@ -69,7 +69,8 @@ When new data contradicts existing wiki content:
 3. For each significant concept: create or update `wiki/concepts/<slug>.md`
 4. For each significant entity: create or update `wiki/entities/<slug>.md`
 5. Update all relevant pages with cross-references
-6. Update `wiki/index.md` — add new entries, update summaries of modified pages
+6. Update `wiki/index.md` — add new entries, update summaries of modified pages.
+   **计数（`(N)` 括号数字）不要手填** — 收尾运行 `python3 scripts/recount-index.py --write` 自动回填（详见 `scripts/recount-index.py`）
 7. Append to `wiki/log.md`
 8. If the source materially shifts the big picture, update `wiki/overview.md`
 
@@ -110,7 +111,7 @@ Skill: `.claude/skills/todo/` → symlink at `~/.claude/skills/todo`
 | `/todo add read "描述"` | 加阅读到 read pool | `/todo add read "Erta 论文" #paper` |
 | `/todo today` | 日计划仪式：从池子里挑今天的 items | `/todo today` |
 | `/todo done <id>` | 标记完成，归档 | `/todo done T001` |
-| `/todo list` | 查看当前 Today + Pool | `/todo list` |
+| `/todo list` | 查看当前 Today / Pending / Pool 等任务区 | `/todo list` |
 | `/todo list archive` | 查看月度归档 | `/todo list archive 2026-03` |
 
 用户心智模型：`/thought` 记想法 → `/todo` 管行动 → `/interview` 让 wiki 问我 → `/digest` 回顾变化 → `/wiki` 管理 → `/wiki-help` 速查
@@ -156,6 +157,19 @@ Skill: `.claude/skills/wiki-help/` → symlink at `~/.claude/skills/wiki-help`
 | Command | Purpose |
 |---------|---------|
 | `/wiki-help` | 输出所有 selfOS 命令速查表 |
+
+### Clone Web（网页克隆）
+
+Skill: optional external `~/.claude/skills/clone-web` from yuanbo-skills
+
+| Command | Purpose | Example |
+|---------|---------|---------|
+| `/clone-web <url>` | 像素级复刻网页到 `clones/<slug>/` | `/clone-web https://generalistai.com/blog/...` |
+| `/clone-web use <name>` | 复用已有克隆到当前项目 | `/clone-web use generalist` |
+| `/clone-web use <name> --tokens` | 只输出 design tokens | `/clone-web use pi --tokens` |
+| `/clone-web list` | 列出所有已保存克隆 | `/clone-web list` |
+
+克隆产物保存在 `clones/` 目录，每个克隆含 manifest.json（元数据）+ tokens.json（设计令牌）+ preview.png + HTML/CSS。Registry: `clones/registry.json`。
 
 ### Academic Writing（论文英文）
 
@@ -218,7 +232,7 @@ Skill: `.claude/skills/transcribe/` → symlink at `~/.claude/skills/transcribe`
 
 - 日常数据操作（ingest、todo）→ 直接在 `private`
 - 功能开发（新 skill、改 script）→ 也在 `private`，积累后批量同步到 `template`
-- 同步方法：`git checkout template` → `git checkout private -- .claude/skills/ setup.sh hooks/ scripts/ CLAUDE.md` → 脱敏 → commit
+- 同步方法：`git checkout template` → `git checkout private -- .claude/skills/ .agents/skills/ setup.sh hooks/ scripts/ AGENTS.md CLAUDE.md` → 脱敏 → `bash scripts/check_agent_parity.sh` → commit
 - **不要 merge**（orphan 分支无共同祖先，只能 checkout + 覆盖 + 脱敏）
 - 同步频率：每 1-2 周或每次大的 skill 重构后
 - 详见 `docs/knowhow/runbooks/template-data-separation.md`
@@ -231,7 +245,8 @@ Skill: `.claude/skills/transcribe/` → symlink at `~/.claude/skills/transcribe`
 |------|------|
 | `setup.sh` | 一键注册全局 skill symlink + 可选 Auto-Capture hook |
 | `hooks/auto-capture.sh` | repo 内的 Stop hook 脚本 |
-| `.claude/skills/` | 所有 skill 源文件（项目级自动加载） |
+| `.claude/skills/` | Claude Code skill 源文件 |
+| `.agents/skills/` | Codex skill 源文件 |
 
 ## Specs
 
@@ -248,12 +263,24 @@ Skill: `.claude/skills/transcribe/` → symlink at `~/.claude/skills/transcribe`
 
 ## Knowhow
 
-- `docs/knowhow/toolchain/` — qmd, chat export, fieldtheory, Obsidian 插件调研等工具指南
+### Toolchain
 - `docs/knowhow/toolchain/obsidian-cli-integration.md` — Obsidian CLI/API 集成方案调研
 - `docs/knowhow/toolchain/cc-skill-distribution.md` — CC Skill 分发架构：源/symlink 分离、CSO 规则、hook 模式
 - `docs/knowhow/toolchain/volcengine-asr.md` — 火山引擎 ASR 录音转写：API 认证、产品选择、脚本用法
+- `docs/knowhow/toolchain/qmd-search-engine.md` — qmd 搜索引擎：BM25 + 向量 + 混合检索用法
+- `docs/knowhow/toolchain/chat-history-export.md` — AI 聊天记录导出方法（Claude.ai / Gemini）
+- `docs/knowhow/toolchain/fieldtheory-twitter-bookmarks.md` — Fieldtheory：Twitter/X 书签本地同步
+- `docs/knowhow/toolchain/obsidian-plugins-survey.md` — Obsidian 社区插件调研（selfOS LLM Wiki 场景）
+
+### Runbooks
 - `docs/knowhow/runbooks/selfos-skill-refactor.md` — Skill 体系审计、清理、重命名、职责正交化 runbook
 - `docs/knowhow/runbooks/template-data-separation.md` — Template/Private 分支分离管理 + 反向同步 workflow + 脱敏 checklist
 - `docs/knowhow/runbooks/audio-transcribe-to-wiki.md` — 录音转写→wiki 归档完整 runbook（/transcribe skill 流程）
-- `docs/knowhow/debug-solutions/` — Obsidian 配置等问题解决
-- `docs/knowhow/runbooks/` — LLM Wiki 搭建等操作手册
+- `docs/knowhow/runbooks/llm-wiki-setup.md` — LLM Wiki 从零搭建 runbook
+- `docs/knowhow/runbooks/selfos-skill-creation.md` — selfOS skill 创建 runbook
+- `docs/knowhow/runbooks/open-source-launch-checklist.md` — 开源发布 checklist
+
+### Debug Solutions
+- `docs/knowhow/debug-solutions/obsidian-graph-config-override.md` — Obsidian Graph View 配置被覆盖问题
+- `docs/knowhow/debug-solutions/git-orphan-branch-file-loss.md` — Git orphan branch 切换导致文件丢失
+- `docs/knowhow/debug-solutions/github-push-protection-secrets.md` — GitHub Push Protection：Git 历史中的 secrets 清理

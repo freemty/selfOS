@@ -38,13 +38,13 @@ Format — natural dialogue, separated by `---`:
 
 ---
 
-**渊博：** [user's exact question, verbatim — keep the oral tone]
+**用户：** [user's exact question, verbatim — keep the oral tone]
 
 [answer in conversational tone, with tables/diagrams/code inline]
 
 ---
 
-**渊博：** [follow-up question]
+**用户：** [follow-up question]
 
 [answer]
 
@@ -52,14 +52,14 @@ Format — natural dialogue, separated by `---`:
 ```
 
 Rules:
-- **`**渊博：**` not `**Q1:**`** — use the user's name, not numbered labels
+- **`**用户：**` not `**Q1:**`** — use a dialogue speaker label, not numbered labels
 - Preserve the user's exact phrasing — their questions reveal cognitive gaps and thinking patterns
 - Keep questions that seem "off-topic" — tangential questions often expose the deepest learning needs
-- **Answers: keep the conversational tone.** Don't rewrite into formal bullet points. Preserve vivid expressions (metaphors, analogies like "弹药库 vs 弹匣"), the natural "先问→追深→恍然大悟" flow, and any "渊博的洞察/追问" annotations. Only trim pure filler (repeated "那个"/"嗯"), never trim personality or surprise.
+- **Answers: keep the conversational tone.** Don't rewrite into formal bullet points. Preserve vivid expressions (metaphors, analogies like "弹药库 vs 弹匣"), the natural "先问→追深→恍然大悟" flow, and any user insight/follow-up annotations. Only trim pure filler (repeated "那个"/"嗯"), never trim personality or surprise.
 - If the answer included a diagram or code block, include it inline
 - Order must match the original conversation flow — the sequence itself tells a story of deepening understanding
 - **Don't restructure into Section→Subsection→Bullet format.** The dialogue flow IS the structure. No `### N. Title` numbered sections.
-- **No separate summary section** (like "渊博的核心追问" or "核心洞察") at the end — insights should appear where they naturally occurred in the dialogue
+- **No separate summary section** (like "用户的核心追问" or "核心洞察") at the end — insights should appear where they naturally occurred in the dialogue
 - Not every conversation needs this — only when the user is actively interrogating a topic (asking 3+ substantive questions). Short conversations still use `## Key Takeaways`.
 
 ### 3. Identify concepts and entities
@@ -85,7 +85,7 @@ Add `[[wiki-links]]` wherever pages reference each other. Ensure bidirectional l
 ### 7. Update index.md + log.md (parallel)
 
 These two writes are independent — do both:
-- **index.md**: ensure every created/modified page has an entry
+- **index.md**: ensure every created/modified page has an entry. **Do NOT hand-edit the `(N)` counts** — after adding entries, run `python3 scripts/recount-index.py --write` from the wiki root to auto-backfill every bracket count (top-level sections, source buckets, People sub-groups). Idempotent; a second run reports 0 changes.
 - **log.md**: append `## [YYYY-MM-DD] ingest | {Source Title}` with sub-bullets for created/updated pages and key insights
 
 ### 9. Update overview.md (if needed)
