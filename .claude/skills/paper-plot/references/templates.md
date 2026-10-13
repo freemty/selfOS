@@ -1,12 +1,4 @@
----
-name: paper-plot
-description: "Publication-quality matplotlib figure templates with shared style. Auto-triggers when creating paper figures, experiment plots, or comparison charts. Triggers: paper figure, 画图, plot results, matplotlib template, 论文图表."
-user-invocable: true
----
-
-# Paper Plot — Publication Figure Templates
-
-Drop-in matplotlib templates for publication-quality figures. Shared style ensures visual consistency across all figures in a paper.
+# Paper Plot Templates Reference
 
 ## Style Foundation
 
@@ -48,7 +40,7 @@ Default: `paper` tier. Switch in one line: `colors = PALETTE['medium']`.
 
 ```bash
 # 1. Copy template + style to your figures directory
-cp ~/.claude/skills/paper-plot/templates/{style.py,bar_vertical.py} ./figures/
+cp <loaded-skill-dir>/templates/{style.py,bar_vertical.py} ./figures/
 
 # 2. Edit data block in the template
 # 3. Run
@@ -87,6 +79,4 @@ python figures/bar_vertical.py
 
 ## Template Directory
 
-Templates live at: `~/.claude/skills/paper-plot/templates/`
-
-When templates don't exist yet, generate them on first invocation using the style rules above.
+Templates live in `templates/` adjacent to this `SKILL.md`. Resolve them from the loaded skill directory rather than assuming a Claude- or Codex-specific home path.

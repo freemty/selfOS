@@ -82,7 +82,7 @@ install_links() {
   for skill in "${SKILLS[@]}"; do
     local target="$source_root/$skill"
     local link="$dest_root/$skill"
-    if [ ! -f "$target/$entry_file" ]; then
+    if [ ! -f "$target/$entry_file" ] && [ ! -f "$target/SKILL.md" ]; then
       echo "  skip $skill (missing $entry_file)"
       continue
     fi

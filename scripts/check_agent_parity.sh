@@ -33,7 +33,7 @@ for file in "${required_files[@]}"; do
 done
 
 claude_skills="$(find .claude/skills -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)"
-codex_skills="$(find .agents/skills -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)"
+codex_skills="$(find -L .agents/skills -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)"
 
 [ -n "$claude_skills" ] || fail "no Claude skills found"
 [ -n "$codex_skills" ] || fail "no Codex skills found"
@@ -47,7 +47,7 @@ if [ "$claude_skills" != "$codex_skills" ]; then
 fi
 
 for skill in $claude_skills; do
-  [ -f ".claude/skills/$skill/skill.md" ] || fail "missing Claude entry for $skill"
+  [ -f ".claude/skills/$skill/SKILL.md" ] || [ -f ".claude/skills/$skill/skill.md" ] || fail "missing Claude entry for $skill"
   [ -f ".agents/skills/$skill/SKILL.md" ] || fail "missing Codex entry for $skill"
 done
 
